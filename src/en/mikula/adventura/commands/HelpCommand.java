@@ -3,8 +3,6 @@ package en.mikula.adventura.commands;
 import en.mikula.adventura.base.CommandList;
 import en.mikula.adventura.base.Game;
 
-import java.util.Map;
-
 /**
  * @author Marek Mikula
  * @version 4/6/2021
@@ -23,19 +21,20 @@ public class HelpCommand extends Command {
         return "Shows list of possible commands";
     }
 
+    /**
+     * Shows all available commands
+     *
+     * @param args array of params which user entered
+     * @return list of all available commands
+     */
     public String run(String... args) {
-        System.out.println("Available commands:");
+        StringBuilder response = new StringBuilder("Available commands:");
 
-        Map<String, Command> commands = commandList.getCommands();
-
-        String[] array = new String[commands.size()];
-
-        int index = 0;
-        for (Command command : commands.values()) {
-            array[index++] = "[" + command.signature() + "] - " + command.help();
+        for (Command command : commandList.getCommands().values()) {
+            response.append("\n").append("[").append(command.signature()).append("] - ").append(command.help());
         }
 
-        return String.join("\n", array);
+        return response.toString();
     }
 
 }
