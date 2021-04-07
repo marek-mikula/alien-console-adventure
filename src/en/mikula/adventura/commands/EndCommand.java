@@ -1,5 +1,6 @@
 package en.mikula.adventura.commands;
 
+import en.mikula.adventura.base.CommandList;
 import en.mikula.adventura.base.Game;
 
 /**
@@ -8,12 +9,16 @@ import en.mikula.adventura.base.Game;
  */
 public class EndCommand extends Command {
 
-    public EndCommand(Game game) {
-        super(game);
+    public EndCommand(Game game, CommandList commandList) {
+        super(game, commandList);
     }
 
     public String signature() {
         return "end";
+    }
+
+    public String help() {
+        return "Ends the game";
     }
 
     public String run(String... args) {

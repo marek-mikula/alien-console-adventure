@@ -21,8 +21,8 @@ public class CommandListFactory {
     public static CommandList buildCommandList(Game game) {
         CommandList commandList = new CommandList();
 
-        commandList.addCommand(new HelpCommand(game));
-        commandList.addCommand(new EndCommand(game));
+        commandList.addCommand(new HelpCommand(game, commandList));
+        commandList.addCommand(new EndCommand(game, commandList));
 
         return commandList;
     }

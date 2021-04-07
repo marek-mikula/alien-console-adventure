@@ -42,4 +42,13 @@ public class CommandList {
         return commands.getOrDefault(signature, null);
     }
 
+    /**
+     * Gets the map of commands
+     *
+     * @return map of commands
+     */
+    public Map<String, Command> getCommands() {
+        return commands;
+    }
+
 }

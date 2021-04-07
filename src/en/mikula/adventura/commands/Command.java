@@ -1,5 +1,6 @@
 package en.mikula.adventura.commands;
 
+import en.mikula.adventura.base.CommandList;
 import en.mikula.adventura.base.Game;
 
 /**
@@ -10,16 +11,26 @@ public abstract class Command {
 
     protected final Game game;
 
-    public Command(Game game) {
+    protected final CommandList commandList;
+
+    public Command(Game game, CommandList commandList) {
         this.game = game;
+        this.commandList = commandList;
     }
 
     /**
-     * Returns the command signature
+     * Gets the command signature
      *
      * @return String
      */
     public abstract String signature();
+
+    /**
+     * Gets the help message for command
+     *
+     * @return help message
+     */
+    public abstract String help();
 
     /**
      * Method which handles the current command
