@@ -11,10 +11,11 @@ import en.mikula.adventura.commands.HelpCommand;
 public class CommandListFactory {
 
     /**
-     * Builds the command list
+     * Builds the command list and fills it
+     * with valid commands
      *
-     * @param game Game instance
-     * @return Created command list
+     * @param game game instance
+     * @return created command list
      */
     public static CommandList buildCommandList(Game game) {
         CommandList commandList = new CommandList();

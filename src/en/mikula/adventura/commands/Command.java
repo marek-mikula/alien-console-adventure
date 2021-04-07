@@ -8,7 +8,7 @@ import en.mikula.adventura.base.Game;
  */
 public abstract class Command {
 
-    private Game game;
+    private final Game game;
 
     public Command(Game game) {
         this.game = game;

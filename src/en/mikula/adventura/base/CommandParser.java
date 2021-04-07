@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class CommandParser {
 
-    private CommandList commandList;
+    private final CommandList commandList;
 
     public CommandParser(Game game) {
         commandList = CommandListFactory.buildCommandList(game);
@@ -20,18 +20,20 @@ public class CommandParser {
      * Parses the line, checks if a command is valid
      * and runs the command with some arguments
      *
-     * @param line String
-     * @return String
+     * @param line line that user entered
+     * @return the result of the command
      */
     public String parseCommand(String line) {
         String[] words = line.split("[ \t]+");
 
         String signature = words[0];
 
+        // Throw exception if the command is not valid
         if (!commandList.isValidCommand(signature)) {
             throw new IllegalArgumentException("Command [" + signature + "] is invalid. Try another one!");
         }
 
+        // There is only 1 word in the array, no params added
         if (words.length < 2) {
             return commandList.getCommand(signature).run();
         }
