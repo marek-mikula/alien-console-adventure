@@ -2,6 +2,7 @@ package en.mikula.adventura.factories;
 
 import en.mikula.adventura.base.CommandList;
 import en.mikula.adventura.base.Game;
+import en.mikula.adventura.commands.EndCommand;
 import en.mikula.adventura.commands.HelpCommand;
 
 /**
@@ -21,6 +22,7 @@ public class CommandListFactory {
         CommandList commandList = new CommandList();
 
         commandList.addCommand(new HelpCommand(game));
+        commandList.addCommand(new EndCommand(game));
 
         return commandList;
     }

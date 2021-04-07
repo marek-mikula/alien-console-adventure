@@ -8,10 +8,13 @@ public class Game {
 
     private final InputReader inputReader;
 
+    private final Player player;
+
     private boolean hasEnded = false;
 
     public Game() {
         this.inputReader = new InputReader(this);
+        this.player = new Player(this);
     }
 
     public void start() {
@@ -19,7 +22,7 @@ public class Game {
 
         while (!hasEnded) {
             try {
-                System.out.println(this.inputReader.readCommand());
+                System.out.priendntln(this.inputReader.readCommand());
             } catch (IllegalArgumentException exception) {
                 System.out.println(exception.getMessage());
             }

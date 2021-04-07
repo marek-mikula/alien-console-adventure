@@ -24,6 +24,11 @@ public class CommandParser {
      * @return the result of the command
      */
     public String parseCommand(String line) {
+        // User entered empty string
+        if (line.isEmpty()) {
+            throw new IllegalArgumentException("You did not enter any command!");
+        }
+
         String[] words = line.split("[ \t]+");
 
         String signature = words[0];

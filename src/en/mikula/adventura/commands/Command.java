@@ -8,7 +8,7 @@ import en.mikula.adventura.base.Game;
  */
 public abstract class Command {
 
-    private final Game game;
+    protected final Game game;
 
     public Command(Game game) {
         this.game = game;
@@ -24,8 +24,8 @@ public abstract class Command {
     /**
      * Method which handles the current command
      *
-     * @param args String[]
-     * @return String
+     * @param args array of params which user entered
+     * @return string
      */
     public abstract String run(String... args);
 
