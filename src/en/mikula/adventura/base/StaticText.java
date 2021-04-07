@@ -19,10 +19,14 @@ public class StaticText {
     /**
      * Renders ending text to user
      */
-    public static void endingText() {
+    public static void endingText(long time) {
+
+        System.out.println(time);
+
         String[] text = {
                 "Díky",
-                "Čau"
+                "Čau",
+                "Čas: " + (time / 1000)
         };
         System.out.println(String.join("\n", text));
     }
