@@ -28,9 +28,9 @@ public class MapFactory {
         cabin.addConnection(new RoomConnection(bridge));
 
         bridge.addConnection(new RoomConnection(cabin));
-        bridge.addConnection(new RoomConnection(escapeModuleSector));
+        bridge.addConnection(new RoomConnection(escapeModuleSector).setIsBlocked(true));
         bridge.addConnection(new RoomConnection(cafeteria));
-        bridge.addConnection(new RoomConnection(cargoSpace));
+        bridge.addConnection(new RoomConnection(cargoSpace).setIsLocked(true));
 
         escapeModuleSector.addConnection(new RoomConnection(storage));
         escapeModuleSector.addConnection(new RoomConnection(bridge));
@@ -41,7 +41,7 @@ public class MapFactory {
         cargoSpaceControl.addConnection(new RoomConnection(cafeteria));
 
         cargoSpace.addConnection(new RoomConnection(bridge));
-        cargoSpace.addConnection(new RoomConnection(storage));
+        cargoSpace.addConnection(new RoomConnection(storage).setIsLocked(true));
 
         storage.addConnection(new RoomConnection(cargoSpace));
         storage.addConnection(new RoomConnection(escapeModuleSector));

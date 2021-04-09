@@ -36,6 +36,16 @@ public abstract class Room {
         return connections;
     }
 
+    public RoomConnection getNext(String roomName) {
+        for (RoomConnection roomConnection : connections) {
+            if (roomConnection.getNext().getName().equals(roomName)) {
+                return roomConnection;
+            }
+        }
+
+        return null;
+    }
+
     public abstract String getName();
 
     @Override

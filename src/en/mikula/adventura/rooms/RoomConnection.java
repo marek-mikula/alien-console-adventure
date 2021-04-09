@@ -18,16 +18,18 @@ public class RoomConnection {
         this.next = next;
     }
 
-    public void setIsLocked(boolean isLocked) {
+    public RoomConnection setIsLocked(boolean isLocked) {
         this.isLocked = isLocked;
+        return this;
     }
 
     public boolean isLocked() {
         return isLocked;
     }
 
-    public void setIsBlocked(boolean isBlocked) {
+    public RoomConnection setIsBlocked(boolean isBlocked) {
         this.isBlocked = isBlocked;
+        return this;
     }
 
     public boolean isBlocked() {
