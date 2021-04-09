@@ -35,7 +35,7 @@ public class SearchCommand implements Command {
         StringBuilder itemList = new StringBuilder("Available items:");
 
         for (Item item : items) {
-            itemList.append("\n- ").append(item.getName());
+            itemList.append("\n").append("[").append(item.getCode().getNumber()).append("] ").append(item.getName());
         }
 
         return itemList.toString();
