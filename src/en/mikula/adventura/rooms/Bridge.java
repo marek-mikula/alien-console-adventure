@@ -12,4 +12,8 @@ public class Bridge extends Room {
         super(game);
     }
 
+    @Override
+    public String getName() {
+        return "Command bridge";
+    }
 }

@@ -12,4 +12,9 @@ public class Cabin extends Room {
         super(game);
     }
 
+    @Override
+    public String getName() {
+        return "Ellen Ripley's cabin";
+    }
+
 }

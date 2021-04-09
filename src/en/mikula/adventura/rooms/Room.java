@@ -3,6 +3,7 @@ package en.mikula.adventura.rooms;
 import en.mikula.adventura.base.Game;
 
 import java.util.HashSet;
+import java.util.Objects;
 
 /**
  * @author Marek Mikula
@@ -20,6 +21,25 @@ public abstract class Room {
 
     public boolean addConnection(RoomConnection roomConnection) {
         return connections.add(roomConnection);
+    }
+
+    public abstract String getName();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Room room = (Room) o;
+        return room.getName().equals(this.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getName());
     }
 
 }

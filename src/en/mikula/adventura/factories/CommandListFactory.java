@@ -4,6 +4,7 @@ import en.mikula.adventura.base.CommandList;
 import en.mikula.adventura.base.Game;
 import en.mikula.adventura.commands.EndCommand;
 import en.mikula.adventura.commands.HelpCommand;
+import en.mikula.adventura.commands.WhereCommand;
 
 /**
  * Builds the command list
@@ -25,6 +26,7 @@ public class CommandListFactory {
 
         commandList.addCommand(new HelpCommand(commandList));
         commandList.addCommand(new EndCommand(game));
+        commandList.addCommand(new WhereCommand(game));
 
         return commandList;
     }

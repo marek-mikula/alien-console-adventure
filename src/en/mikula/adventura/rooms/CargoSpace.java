@@ -12,4 +12,9 @@ public class CargoSpace extends Room {
         super(game);
     }
 
+    @Override
+    public String getName() {
+        return "Cargo space";
+    }
+
 }

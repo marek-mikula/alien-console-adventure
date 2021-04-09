@@ -12,4 +12,9 @@ public class Cafeteria extends Room {
         super(game);
     }
 
+    @Override
+    public String getName() {
+        return "Cafeteria";
+    }
+
 }

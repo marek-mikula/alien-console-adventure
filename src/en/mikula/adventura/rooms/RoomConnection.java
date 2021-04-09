@@ -1,5 +1,7 @@
 package en.mikula.adventura.rooms;
 
+import java.util.Objects;
+
 /**
  * @author Marek Mikula
  * @version 4/9/2021
@@ -32,4 +34,20 @@ public class RoomConnection {
         return isBlocked;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        RoomConnection roomConnection = (RoomConnection) o;
+        return Objects.equals(to, roomConnection.to);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(to);
+    }
 }

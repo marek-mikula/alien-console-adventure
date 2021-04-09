@@ -12,4 +12,9 @@ public class Storage extends Room {
         super(game);
     }
 
+    @Override
+    public String getName() {
+        return "Storage room";
+    }
+
 }

@@ -12,4 +12,9 @@ public class EscapeModuleSector extends Room {
         super(game);
     }
 
+    @Override
+    public String getName() {
+        return "Escape module sector";
+    }
+
 }
