@@ -6,12 +6,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Class used for storing the available commands
+ *
  * @author Marek Mikula
  * @version 4/6/2021
  */
 public class CommandList {
 
-    private Map<String, Command> commands = new HashMap();
+    private final Map<String, Command> commands = new HashMap<>();
 
     /**
      * Adds new command to map

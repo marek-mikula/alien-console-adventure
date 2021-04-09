@@ -3,6 +3,8 @@ package en.mikula.adventura.base;
 import java.util.Scanner;
 
 /**
+ * Reads input from user command line
+ *
  * @author Marek Mikula
  * @version 4/6/2021
  */

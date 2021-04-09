@@ -5,6 +5,8 @@ import en.mikula.adventura.factories.CommandListFactory;
 import java.util.Arrays;
 
 /**
+ * Parses the commands from user input
+ *
  * @author Marek Mikula
  * @version 4/6/2021
  */

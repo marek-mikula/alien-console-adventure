@@ -6,6 +6,8 @@ import en.mikula.adventura.commands.EndCommand;
 import en.mikula.adventura.commands.HelpCommand;
 
 /**
+ * Builds the command list
+ * 
  * @author Marek Mikula
  * @version 4/6/2021
  */
