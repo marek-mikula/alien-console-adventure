@@ -49,7 +49,7 @@ public class GoCommand implements Command {
                         previousRoom.getRoomCode().getNumber()
                 );
             } else {
-                return "You have to enter the number of the room as a first argument.";
+                return "You have to enter the number of a room as a first argument.";
             }
         }
 

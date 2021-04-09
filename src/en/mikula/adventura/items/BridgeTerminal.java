@@ -16,4 +16,10 @@ public class BridgeTerminal implements Item, Interactive {
         return ItemCode.ITEM_1;
     }
 
+    @Override
+    public String interact() {
+        System.out.println("Interactive");
+
+        return " ";
+    }
 }

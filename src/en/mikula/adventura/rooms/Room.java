@@ -2,6 +2,7 @@ package en.mikula.adventura.rooms;
 
 import en.mikula.adventura.base.Game;
 import en.mikula.adventura.items.Item;
+import en.mikula.adventura.items.ItemCode;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -55,11 +56,29 @@ public abstract class Room {
      * @param roomCode the room code which should correspond
      *                 with the code of the next room
      * @return RoomConnection or null if not found
+     * @see RoomCode
      */
     public RoomConnection getNext(int roomCode) {
         for (RoomConnection roomConnection : connections) {
             if (roomConnection.getNext().getRoomCode().getNumber() == roomCode) {
                 return roomConnection;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Gets the item by item code
+     *
+     * @param itemCode integer item code
+     * @return item if any
+     * @see ItemCode
+     */
+    public Item getItem(int itemCode) {
+        for (Item item : items) {
+            if (item.getCode().getNumber() == itemCode) {
+                return item;
             }
         }
 
