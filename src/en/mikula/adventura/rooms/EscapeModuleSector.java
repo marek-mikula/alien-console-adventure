@@ -8,6 +8,8 @@ import en.mikula.adventura.base.Game;
  */
 public class EscapeModuleSector extends Room {
 
+    private boolean isModuleReady = false;
+
     public EscapeModuleSector(Game game) {
         super(game);
     }
@@ -20,6 +22,14 @@ public class EscapeModuleSector extends Room {
     @Override
     public RoomCode getRoomCode() {
         return RoomCode.ROOM_6;
+    }
+
+    public void setIsModuleReady(boolean isModuleReady) {
+        this.isModuleReady = isModuleReady;
+    }
+
+    public boolean isModuleReady() {
+        return isModuleReady;
     }
 
 }

@@ -5,6 +5,7 @@ import en.mikula.adventura.base.Map;
 import en.mikula.adventura.items.*;
 import en.mikula.adventura.items.terminals.BridgeTerminal;
 import en.mikula.adventura.items.terminals.CargoSpaceControlTerminal;
+import en.mikula.adventura.items.terminals.EscapeModuleSectorTerminal;
 import en.mikula.adventura.rooms.*;
 
 /**
@@ -37,7 +38,7 @@ public class MapFactory {
         bridge.addItem(new BridgeTerminal(game));
         cargoSpaceControl.addItem(new CargoSpaceControlTerminal(game));
         cargoSpace.addItem(new Screwdriver());
-        escapeModuleSector.addItem(new EscapeModuleSectorTerminal());
+        escapeModuleSector.addItem(new EscapeModuleSectorTerminal(game));
 
         // Create connections between rooms
 
@@ -49,7 +50,7 @@ public class MapFactory {
         bridge.addConnection(new RoomConnection(cargoSpace).setIsLocked(true));
 
         escapeModuleSector.addConnection(new RoomConnection(storage));
-        escapeModuleSector.addConnection(new RoomConnection(bridge));
+        escapeModuleSector.addConnection(new RoomConnection(bridge).setIsBlocked(true));
 
         cafeteria.addConnection(new RoomConnection(bridge));
         cafeteria.addConnection(new RoomConnection(cargoSpaceControl));
@@ -73,7 +74,7 @@ public class MapFactory {
         map.addRoom(storage);
 
         // Set default room
-        map.changeCurrentRoom(cabin);
+        map.changeCurrentRoom(escapeModuleSector);
 
         return map;
     }
