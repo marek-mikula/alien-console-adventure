@@ -3,6 +3,7 @@ package en.mikula.adventura.factories;
 import en.mikula.adventura.base.Game;
 import en.mikula.adventura.base.Map;
 import en.mikula.adventura.items.*;
+import en.mikula.adventura.items.terminals.BridgeTerminal;
 import en.mikula.adventura.rooms.*;
 
 /**
@@ -59,8 +60,7 @@ public class MapFactory {
         storage.addConnection(new RoomConnection(escapeModuleSector));
 
         Map map = new Map();
-        // TODO change
-        map.changeCurrentRoom(bridge);
+        map.changeCurrentRoom(cabin);
 
         return map;
     }
