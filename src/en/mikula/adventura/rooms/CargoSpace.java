@@ -1,9 +1,8 @@
 package en.mikula.adventura.rooms;
 
 /**
- * @author Marek Mikula
+ * @author justitpro
  * @version 4/9/2021
  */
-public interface Room {
-
+public class CargoSpace implements Room {
 }
