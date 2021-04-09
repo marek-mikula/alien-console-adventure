@@ -1,16 +1,19 @@
 package en.mikula.adventura.commands;
 
-import en.mikula.adventura.base.CommandList;
 import en.mikula.adventura.base.Game;
 
 /**
+ * Ends the game
+ *
  * @author Marek Mikula
  * @version 4/6/2021
  */
-public class EndCommand extends Command {
+public class EndCommand implements Command {
 
-    public EndCommand(Game game, CommandList commandList) {
-        super(game, commandList);
+    private final Game game;
+
+    public EndCommand(Game game) {
+        this.game = game;
     }
 
     public String signature() {

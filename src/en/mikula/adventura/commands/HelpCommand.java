@@ -1,16 +1,20 @@
 package en.mikula.adventura.commands;
 
 import en.mikula.adventura.base.CommandList;
-import en.mikula.adventura.base.Game;
 
 /**
+ * Shows all available commands with their signature
+ * and help text
+ *
  * @author Marek Mikula
  * @version 4/6/2021
  */
-public class HelpCommand extends Command {
+public class HelpCommand implements Command {
 
-    public HelpCommand(Game game, CommandList commandList) {
-        super(game, commandList);
+    private final CommandList commandList;
+
+    public HelpCommand(CommandList commandList) {
+        this.commandList = commandList;
     }
 
     public String signature() {
@@ -21,12 +25,6 @@ public class HelpCommand extends Command {
         return "Shows list of possible commands";
     }
 
-    /**
-     * Shows all available commands
-     *
-     * @param args array of params which user entered
-     * @return list of all available commands
-     */
     public String run(String... args) {
         StringBuilder response = new StringBuilder("Available commands:");
 
