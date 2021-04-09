@@ -8,4 +8,6 @@ public interface Item {
 
     public String getName();
 
+    public ItemCode getCode();
+
 }

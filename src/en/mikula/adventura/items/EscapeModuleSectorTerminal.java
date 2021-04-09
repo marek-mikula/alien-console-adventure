@@ -10,4 +10,10 @@ public class EscapeModuleSectorTerminal implements Item {
     public String getName() {
         return "Escape module sector terminal";
     }
+
+    @Override
+    public ItemCode getCode() {
+        return ItemCode.ITEM_5;
+    }
+
 }

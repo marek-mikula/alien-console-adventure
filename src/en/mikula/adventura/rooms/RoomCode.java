@@ -7,7 +7,13 @@ package en.mikula.adventura.rooms;
  * @version 4/9/2021
  */
 public enum RoomCode {
-    ROOM_0(0), ROOM_1(1), ROOM_2(2), ROOM_3(3), ROOM_4(4), ROOM_5(5), ROOM_6(6);
+    ROOM_0(0), // Ellen Ripley's cabin
+    ROOM_1(1), // Bridge
+    ROOM_2(2), // Cafeteria
+    ROOM_3(3), // Cargo space control room
+    ROOM_4(4), // Cargo space
+    ROOM_5(5), // Storage
+    ROOM_6(6); // Escape module sector
 
     private final int number;
 

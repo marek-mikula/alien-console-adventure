@@ -10,4 +10,10 @@ public class CommandersBody implements Item {
     public String getName() {
         return "Commanding officer's body";
     }
+
+    @Override
+    public ItemCode getCode() {
+        return ItemCode.ITEM_2;
+    }
+
 }

@@ -10,4 +10,10 @@ public class Diary implements Item{
     public String getName() {
         return "Ellen Ripley's diary";
     }
+
+    @Override
+    public ItemCode getCode() {
+        return ItemCode.ITEM_0;
+    }
+
 }

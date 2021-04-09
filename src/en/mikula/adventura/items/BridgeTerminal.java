@@ -10,4 +10,10 @@ public class BridgeTerminal implements Item, Interactive {
     public String getName() {
         return "Main bridge terminal";
     }
+
+    @Override
+    public ItemCode getCode() {
+        return ItemCode.ITEM_1;
+    }
+
 }

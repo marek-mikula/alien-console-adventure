@@ -10,4 +10,10 @@ public class CargoSpaceControlTerminal implements Item {
     public String getName() {
         return "Cargo space control terminal";
     }
+
+    @Override
+    public ItemCode getCode() {
+        return ItemCode.ITEM_3;
+    }
+
 }
