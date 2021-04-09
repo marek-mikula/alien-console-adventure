@@ -11,7 +11,7 @@ import en.mikula.adventura.rooms.*;
 public class MapFactory {
 
     /**
-     * Build the rooms and map
+     * Build the rooms and their connections
      *
      * @param game game instance
      * @return built map

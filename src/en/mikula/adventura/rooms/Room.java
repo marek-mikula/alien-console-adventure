@@ -19,8 +19,21 @@ public abstract class Room {
         this.game = game;
     }
 
+    /**
+     * Adds a new connection to the set
+     *
+     * @param roomConnection specifies the landing room
+     * @return boolean if added, otherwise false
+     */
     public boolean addConnection(RoomConnection roomConnection) {
         return connections.add(roomConnection);
+    }
+
+    /**
+     * @return the set of all connections
+     */
+    public HashSet<RoomConnection> getConnections() {
+        return connections;
     }
 
     public abstract String getName();

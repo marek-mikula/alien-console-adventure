@@ -8,14 +8,14 @@ import java.util.Objects;
  */
 public class RoomConnection {
 
-    private final Room to;
+    private final Room next;
 
     private boolean isLocked = false;
 
     private boolean isBlocked = false;
 
-    public RoomConnection(Room to) {
-        this.to = to;
+    public RoomConnection(Room next) {
+        this.next = next;
     }
 
     public void setIsLocked(boolean isLocked) {
@@ -34,6 +34,10 @@ public class RoomConnection {
         return isBlocked;
     }
 
+    public Room getNext() {
+        return next;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -43,11 +47,11 @@ public class RoomConnection {
             return false;
         }
         RoomConnection roomConnection = (RoomConnection) o;
-        return Objects.equals(to, roomConnection.to);
+        return next.equals(roomConnection.getNext());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(to);
+        return Objects.hash(next);
     }
 }
