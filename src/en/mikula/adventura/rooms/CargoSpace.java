@@ -17,4 +17,9 @@ public class CargoSpace extends Room {
         return "Cargo space";
     }
 
+    @Override
+    public RoomCode getRoomCode() {
+        return RoomCode.ROOM_4;
+    }
+
 }

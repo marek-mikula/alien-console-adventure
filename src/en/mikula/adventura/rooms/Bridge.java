@@ -16,4 +16,9 @@ public class Bridge extends Room {
     public String getName() {
         return "Command bridge";
     }
+
+    @Override
+    public RoomCode getRoomCode() {
+        return RoomCode.ROOM_1;
+    }
 }

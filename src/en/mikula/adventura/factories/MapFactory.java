@@ -59,7 +59,7 @@ public class MapFactory {
         storage.addConnection(new RoomConnection(escapeModuleSector));
 
         Map map = new Map();
-        map.setCurrentRoom(cabin);
+        map.changeCurrentRoom(cabin);
 
         return map;
     }

@@ -27,6 +27,7 @@ public class CommandListFactory {
         commandList.addCommand(new WhereCommand(game));
         commandList.addCommand(new GoCommand(game));
         commandList.addCommand(new SearchCommand(game));
+        commandList.addCommand(new MapCommand(game));
 
         return commandList;
     }

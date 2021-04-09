@@ -52,13 +52,13 @@ public abstract class Room {
     /**
      * Gets the next connection if any
      *
-     * @param roomName the room name which should correspond
-     *                 with the name of the next room
+     * @param roomCode the room code which should correspond
+     *                 with the code of the next room
      * @return RoomConnection or null if not found
      */
-    public RoomConnection getNext(String roomName) {
+    public RoomConnection getNext(int roomCode) {
         for (RoomConnection roomConnection : connections) {
-            if (roomConnection.getNext().getName().equals(roomName)) {
+            if (roomConnection.getNext().getRoomCode().getNumber() == roomCode) {
                 return roomConnection;
             }
         }
@@ -70,6 +70,11 @@ public abstract class Room {
      * @return room name
      */
     public abstract String getName();
+
+    /**
+     * @return room code
+     */
+    public abstract RoomCode getRoomCode();
 
     @Override
     public boolean equals(Object o) {

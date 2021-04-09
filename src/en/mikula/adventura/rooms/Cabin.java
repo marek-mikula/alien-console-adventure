@@ -17,4 +17,9 @@ public class Cabin extends Room {
         return "Ellen Ripley's cabin";
     }
 
+    @Override
+    public RoomCode getRoomCode() {
+        return RoomCode.ROOM_0;
+    }
+
 }

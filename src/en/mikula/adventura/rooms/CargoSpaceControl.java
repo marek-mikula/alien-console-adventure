@@ -17,4 +17,9 @@ public class CargoSpaceControl extends Room {
         return "Cargo space control room";
     }
 
+    @Override
+    public RoomCode getRoomCode() {
+        return RoomCode.ROOM_3;
+    }
+
 }

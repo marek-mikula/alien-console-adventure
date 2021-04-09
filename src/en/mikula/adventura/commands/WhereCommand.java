@@ -27,12 +27,10 @@ public class WhereCommand implements Command {
     }
 
     public String run(String... args) {
-        StringBuilder response = new StringBuilder("Current room: ")
-                .append(game.getMap().getCurrentRoom().getName())
-                .append("\nExits:");
+        StringBuilder response = new StringBuilder("Current room: ").append(game.getMap().getCurrentRoom().getName()).append("\nExits:");
 
-        for (RoomConnection roomConnection: game.getMap().getCurrentRoom().getConnections()) {
-            response.append("\n").append(roomConnection.getNext().getName());
+        for (RoomConnection roomConnection : game.getMap().getCurrentRoom().getConnections()) {
+            response.append("\n").append("[").append(roomConnection.getNext().getRoomCode().getNumber()).append("]").append(" ").append(roomConnection.getNext().getName());
         }
 
         return response.toString();

@@ -10,6 +10,8 @@ import en.mikula.adventura.rooms.RoomConnection;
  */
 public class GoCommand implements Command {
 
+    private final String BACK_KEYWORD = "back";
+
     private final Game game;
 
     public GoCommand(Game game) {
@@ -21,7 +23,7 @@ public class GoCommand implements Command {
     }
 
     public String help() {
-        return "Moves Ellen to a different room";
+        return "Moves Ellen to a different room. Use room number instead the label!";
     }
 
     public String run(String... args) {
@@ -29,10 +31,27 @@ public class GoCommand implements Command {
             return "You haven't specified the room";
         }
 
-        // Build the room name using all the arguments because of gaps between words
-        String roomName = String.join(" ", args);
+        RoomConnection next = null;
 
-        RoomConnection next = game.getMap().getCurrentRoom().getNext(roomName);
+        // Try to parse the int in first argument and pass it to the method
+        try {
+            next = game.getMap().getCurrentRoom().getNext(Integer.parseInt(args[0]));
+        } catch (NumberFormatException exception) {
+            // User used the BACK keyword to go to previous room
+            if (args[0].equals(this.BACK_KEYWORD)) {
+                Room previousRoom = game.getMap().getPreviousRoom();
+
+                if (previousRoom == null) {
+                    return "There is no previous position!";
+                }
+
+                next = game.getMap().getCurrentRoom().getNext(
+                        previousRoom.getRoomCode().getNumber()
+                );
+            } else {
+                return "You have to enter the number of the room as a first argument.";
+            }
+        }
 
         if (next == null) {
             return "This room does not exists or is not connected to current room.";
@@ -50,7 +69,7 @@ public class GoCommand implements Command {
 
         Room nextRoom = next.getNext();
 
-        game.getMap().setCurrentRoom(nextRoom);
+        game.getMap().changeCurrentRoom(nextRoom);
 
         return "You entered room [" + nextRoom.getName() + "]";
     }

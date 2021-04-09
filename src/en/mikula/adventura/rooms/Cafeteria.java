@@ -17,4 +17,9 @@ public class Cafeteria extends Room {
         return "Cafeteria";
     }
 
+    @Override
+    public RoomCode getRoomCode() {
+        return RoomCode.ROOM_2;
+    }
+
 }

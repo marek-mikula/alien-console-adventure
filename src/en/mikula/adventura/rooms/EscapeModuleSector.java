@@ -17,4 +17,9 @@ public class EscapeModuleSector extends Room {
         return "Escape module sector";
     }
 
+    @Override
+    public RoomCode getRoomCode() {
+        return RoomCode.ROOM_6;
+    }
+
 }

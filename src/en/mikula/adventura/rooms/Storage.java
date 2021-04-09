@@ -17,4 +17,9 @@ public class Storage extends Room {
         return "Storage room";
     }
 
+    @Override
+    public RoomCode getRoomCode() {
+        return RoomCode.ROOM_5;
+    }
+
 }

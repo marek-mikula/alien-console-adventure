@@ -10,12 +10,19 @@ public class Map {
 
     private Room currentRoom;
 
-    public void setCurrentRoom(Room room) {
+    private Room previousRoom;
+
+    public void changeCurrentRoom(Room room) {
+        previousRoom = currentRoom;
         currentRoom = room;
     }
 
     public Room getCurrentRoom() {
         return currentRoom;
+    }
+
+    public Room getPreviousRoom() {
+        return previousRoom;
     }
 
 }
