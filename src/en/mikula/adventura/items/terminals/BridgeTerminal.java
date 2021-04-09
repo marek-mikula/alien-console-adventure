@@ -1,5 +1,6 @@
 package en.mikula.adventura.items.terminals;
 
+import en.mikula.adventura.base.Game;
 import en.mikula.adventura.items.ItemCode;
 
 import java.util.HashMap;
@@ -13,6 +14,10 @@ public class BridgeTerminal extends Terminal {
 
     private final int OPTION_0 = 0;
     private final int OPTION_1 = 1;
+
+    public BridgeTerminal(Game game) {
+        super(game);
+    }
 
     @Override
     public String getName() {
@@ -38,8 +43,7 @@ public class BridgeTerminal extends Terminal {
     protected void handleInteraction(int optionCode) {
         switch (optionCode) {
             case OPTION_0:
-                System.out.println("Number of escape modules used: 36\n" +
-                        "Number of escape modules left: 1");
+                System.out.println("Number of escape modules used: 36\n" + "Number of escape modules left: 1");
                 break;
             case OPTION_1:
                 active = false;

@@ -104,12 +104,12 @@ public abstract class Room {
             return false;
         }
         Room room = (Room) o;
-        return room.getName().equals(this.getName());
+        return room.getRoomCode().getNumber() == this.getRoomCode().getNumber();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.getName());
+        return Objects.hash(this.getRoomCode().getNumber());
     }
 
 }

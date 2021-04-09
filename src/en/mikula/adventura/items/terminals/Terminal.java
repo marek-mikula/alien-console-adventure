@@ -1,5 +1,6 @@
 package en.mikula.adventura.items.terminals;
 
+import en.mikula.adventura.base.Game;
 import en.mikula.adventura.items.Interactive;
 import en.mikula.adventura.items.Item;
 
@@ -17,12 +18,15 @@ public abstract class Terminal implements Item, Interactive {
 
     private final Scanner scanner;
 
+    protected final Game game;
+
     /**
      * Specifies if the terminal is still being used
      */
     protected boolean active = false;
 
-    public Terminal() {
+    public Terminal(Game game) {
+        this.game = game;
         this.scanner = new Scanner(System.in);
     }
 
@@ -32,6 +36,8 @@ public abstract class Terminal implements Item, Interactive {
         this.startTerminal();
 
         while (active) {
+            this.listOptions();
+
             String line = this.readLine();
 
             if (line.isEmpty()) {
@@ -56,11 +62,17 @@ public abstract class Terminal implements Item, Interactive {
     }
 
     /**
-     * Shows the start screen of the terminal and lists all the options
+     * Shows the start screen of the terminal
      */
     private void startTerminal() {
-        System.out.println("*** Weyland-Yutani co. ***\n\n" + "What do you wanna do?");
+        System.out.println("*** Weyland-Yutani co. ***\n");
+    }
 
+    /**
+     * Lists options of the terminal
+     */
+    private void listOptions() {
+        System.out.println("What do you wanna do?");
         for (Map.Entry<Integer, String> entry : this.getOptions().entrySet()) {
             Integer optionNumber = entry.getKey();
             String optionLabel = entry.getValue();
@@ -89,7 +101,7 @@ public abstract class Terminal implements Item, Interactive {
      *
      * @return array of terminal options
      */
-    protected abstract Map<Integer,String> getOptions();
+    protected abstract Map<Integer, String> getOptions();
 
     /**
      * Handles the specific terminal option
