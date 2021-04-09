@@ -1,8 +1,15 @@
 package en.mikula.adventura.rooms;
 
+import en.mikula.adventura.base.Game;
+
 /**
- * @author justitpro
+ * @author Marek Mikula
  * @version 4/9/2021
  */
-public class CargoSpace implements Room {
+public class CargoSpace extends Room {
+
+    public CargoSpace(Game game) {
+        super(game);
+    }
+
 }

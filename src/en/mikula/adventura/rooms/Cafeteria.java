@@ -1,8 +1,15 @@
 package en.mikula.adventura.rooms;
 
+import en.mikula.adventura.base.Game;
+
 /**
- * @author justitpro
+ * @author Marek Mikula
  * @version 4/9/2021
  */
-public class Cafeteria implements Room {
+public class Cafeteria extends Room {
+
+    public Cafeteria(Game game) {
+        super(game);
+    }
+
 }
