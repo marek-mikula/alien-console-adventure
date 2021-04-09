@@ -1,11 +1,14 @@
 package en.mikula.adventura.rooms;
 
 import en.mikula.adventura.base.Game;
+import en.mikula.adventura.items.Item;
 
 import java.util.HashSet;
 import java.util.Objects;
 
 /**
+ * Abstract class for all rooms
+ *
  * @author Marek Mikula
  * @version 4/9/2021
  */
@@ -13,10 +16,20 @@ public abstract class Room {
 
     private final HashSet<RoomConnection> connections = new HashSet<>();
 
+    private final HashSet<Item> items = new HashSet<>();
+
     private final Game game;
 
     public Room(Game game) {
         this.game = game;
+    }
+
+    public boolean addItem(Item item) {
+        return items.add(item);
+    }
+
+    public HashSet<Item> getItems() {
+        return items;
     }
 
     /**
@@ -36,6 +49,13 @@ public abstract class Room {
         return connections;
     }
 
+    /**
+     * Gets the next connection if any
+     *
+     * @param roomName the room name which should correspond
+     *                 with the name of the next room
+     * @return RoomConnection or null if not found
+     */
     public RoomConnection getNext(String roomName) {
         for (RoomConnection roomConnection : connections) {
             if (roomConnection.getNext().getName().equals(roomName)) {
@@ -46,6 +66,9 @@ public abstract class Room {
         return null;
     }
 
+    /**
+     * @return room name
+     */
     public abstract String getName();
 
     @Override

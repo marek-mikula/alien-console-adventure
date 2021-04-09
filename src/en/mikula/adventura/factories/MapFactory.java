@@ -2,6 +2,7 @@ package en.mikula.adventura.factories;
 
 import en.mikula.adventura.base.Game;
 import en.mikula.adventura.base.Map;
+import en.mikula.adventura.items.*;
 import en.mikula.adventura.rooms.*;
 
 /**
@@ -24,6 +25,17 @@ public class MapFactory {
         Room cargoSpaceControl = new CargoSpaceControl(game);
         Room escapeModuleSector = new EscapeModuleSector(game);
         Room storage = new Storage(game);
+
+        // Add items to the rooms
+
+        cabin.addItem(new Diary());
+        cafeteria.addItem(new CommandersBody());
+        bridge.addItem(new BridgeTerminal());
+        cargoSpaceControl.addItem(new CargoSpaceControlTerminal());
+        cargoSpace.addItem(new Screwdriver());
+        escapeModuleSector.addItem(new EscapeModuleSectorTerminal());
+
+        // Create connections between rooms
 
         cabin.addConnection(new RoomConnection(bridge));
 

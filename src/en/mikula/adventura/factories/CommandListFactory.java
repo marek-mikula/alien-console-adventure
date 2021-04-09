@@ -2,10 +2,7 @@ package en.mikula.adventura.factories;
 
 import en.mikula.adventura.base.CommandList;
 import en.mikula.adventura.base.Game;
-import en.mikula.adventura.commands.EndCommand;
-import en.mikula.adventura.commands.GoCommand;
-import en.mikula.adventura.commands.HelpCommand;
-import en.mikula.adventura.commands.WhereCommand;
+import en.mikula.adventura.commands.*;
 
 /**
  * Builds the command list
@@ -29,6 +26,7 @@ public class CommandListFactory {
         commandList.addCommand(new EndCommand(game));
         commandList.addCommand(new WhereCommand(game));
         commandList.addCommand(new GoCommand(game));
+        commandList.addCommand(new SearchCommand(game));
 
         return commandList;
     }
