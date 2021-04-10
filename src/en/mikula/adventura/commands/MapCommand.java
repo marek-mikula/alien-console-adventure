@@ -54,9 +54,9 @@ public class MapCommand implements Command {
                 "##|####|%s|####|##",
                 "##|####└-┘####|##",
                 "##|###########|##",
-                "#┌-┐##########|##",
-                "#|%s|----------┘##",
-                "#└-┘#############",
+                "#┌-┐#########┌-┐#",
+                "#|%s|---------|%s|#",
+                "#└-┘#########└-┘#",
                 "#################",
         });
 
@@ -67,7 +67,8 @@ public class MapCommand implements Command {
                 numbers[RoomCode.ROOM_2.getNumber()],
                 numbers[RoomCode.ROOM_6.getNumber()],
                 numbers[RoomCode.ROOM_3.getNumber()],
-                numbers[RoomCode.ROOM_5.getNumber()]
+                numbers[RoomCode.ROOM_5.getNumber()],
+                numbers[RoomCode.ROOM_7.getNumber()]
                 );
     }
 

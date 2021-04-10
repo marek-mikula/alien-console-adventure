@@ -31,6 +31,7 @@ public class MapFactory {
         Room cargoSpaceControl = new CargoSpaceControl(game);
         Room escapeModuleSector = new EscapeModuleSector(game);
         Room storage = new Storage(game);
+        Room ventilation = new Ventilation(game);
 
         // Add items to the rooms
 
@@ -38,7 +39,7 @@ public class MapFactory {
         cafeteria.addItem(new CommandersBody(game));
         bridge.addItem(new BridgeTerminal(game));
         cargoSpaceControl.addItem(new CargoSpaceControlTerminal(game));
-        cargoSpace.addItem(new Screwdriver());
+        cargoSpace.addItem(new Screwdriver(game));
         cargoSpace.addItem(new CargoSpaceTerminal(game));
         escapeModuleSector.addItem(new EscapeModuleSectorTerminal(game));
         escapeModuleSector.addItem(new EscapeModule(game));
@@ -52,7 +53,7 @@ public class MapFactory {
         bridge.addConnection(new RoomConnection(cafeteria));
         bridge.addConnection(new RoomConnection(cargoSpace).setIsLocked(true));
 
-        escapeModuleSector.addConnection(new RoomConnection(storage));
+        escapeModuleSector.addConnection(new RoomConnection(ventilation));
         escapeModuleSector.addConnection(new RoomConnection(bridge).setIsBlocked(true));
 
         cafeteria.addConnection(new RoomConnection(bridge));
@@ -64,7 +65,10 @@ public class MapFactory {
         cargoSpace.addConnection(new RoomConnection(storage).setIsLocked(true));
 
         storage.addConnection(new RoomConnection(cargoSpace));
-        storage.addConnection(new RoomConnection(escapeModuleSector));
+        storage.addConnection(new RoomConnection(ventilation).setIsLocked(true));
+
+        ventilation.addConnection(new RoomConnection(storage));
+        ventilation.addConnection(new RoomConnection(escapeModuleSector));
 
         // Add rooms to the set
 
@@ -75,6 +79,7 @@ public class MapFactory {
         map.addRoom(cargoSpaceControl);
         map.addRoom(escapeModuleSector);
         map.addRoom(storage);
+        map.addRoom(ventilation);
 
         // Set default room
         map.changeCurrentRoom(cabin);

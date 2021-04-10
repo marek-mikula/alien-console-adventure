@@ -28,7 +28,7 @@ public class CargoSpaceCard extends Item implements Key {
     @Override
     public String open(RoomCode roomCode) {
         if (!game.getMap().getCurrentRoom().getRoomCode().equals(RoomCode.ROOM_1)) {
-            return "You can't open anything in this room with this room.";
+            return "You can't open anything in this room with cargo space card.";
         }
 
         if (!roomCode.equals(RoomCode.ROOM_4)) {
