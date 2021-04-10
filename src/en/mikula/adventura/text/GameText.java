@@ -28,10 +28,9 @@ public class GameText {
     /**
      * Renders ending text to user
      */
-    public static void endingText(long time) {
+    public static void endingText() {
         String[] text = {
                 "The end",
-                "It took you " + (time / 1000) + " seconds to finish the game.",
                 "Thanks for playing, Marek Mikula"
         };
         System.out.println(String.join("\n", text));

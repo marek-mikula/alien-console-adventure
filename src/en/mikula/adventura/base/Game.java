@@ -4,14 +4,15 @@ import en.mikula.adventura.factories.MapFactory;
 import en.mikula.adventura.text.GameText;
 
 /**
+ * Main game class which handles the main
+ * while loop
+ *
  * @author Marek Mikula
  * @version 4/6/2021
  */
 public class Game {
 
     private final InputReader inputReader;
-
-    private final Timer timer;
 
     private final Map map;
 
@@ -21,9 +22,8 @@ public class Game {
 
     public Game() {
         inputReader = new InputReader(this);
-        timer = new Timer();
         map = MapFactory.buildMap(this);
-        inventory = new Inventory(this);
+        inventory = new Inventory();
     }
 
     public void start() {
@@ -37,7 +37,7 @@ public class Game {
             }
         }
 
-        GameText.endingText(timer.stopTimer());
+        GameText.endingText();
     }
 
     public void setHasEnded(boolean hasEnded) {

@@ -5,7 +5,8 @@ import en.mikula.adventura.factories.CommandListFactory;
 import java.util.Arrays;
 
 /**
- * Parses the commands from user input
+ * Class used for parsing user input strings to
+ * commands
  *
  * @author Marek Mikula
  * @version 4/6/2021
@@ -20,7 +21,7 @@ public class CommandParser {
 
     /**
      * Parses the line, checks if a command is valid
-     * and runs the command with some arguments
+     * and runs the command with all arguments from user
      *
      * @param line line that user entered
      * @return the result of the command
@@ -31,8 +32,10 @@ public class CommandParser {
             throw new IllegalArgumentException("You did not enter any command!");
         }
 
+        // Split the line by tabs or spaces
         String[] words = line.split("[ \t]+");
 
+        // The first item of the array should be the signature of the command
         String signature = words[0];
 
         // Throw exception if the command is not valid
@@ -40,11 +43,9 @@ public class CommandParser {
             throw new IllegalArgumentException("Command [" + signature + "] is invalid. Try another one!");
         }
 
-        // There is only 1 word in the array, no params added
-        if (words.length < 2) {
-            return commandList.getCommand(signature).run();
-        }
-
-        return commandList.getCommand(signature).run(Arrays.copyOfRange(words, 1, words.length));
+        return commandList.getCommand(signature).run(
+                // Obtain only the subarray of arguments from the whole array
+                Arrays.copyOfRange(words, 1, words.length)
+        );
     }
 }

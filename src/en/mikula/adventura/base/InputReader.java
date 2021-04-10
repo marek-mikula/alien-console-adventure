@@ -23,16 +23,16 @@ public class InputReader {
      * Reads one line from user and pass it to
      * command parser.
      *
-     * @return Command
+     * @return parsed command
      */
     public String readCommand() {
         return commandParser.parseCommand(this.readLine());
     }
 
     /**
-     * Reads input from user using Scanner
+     * Reads one line from user
      *
-     * @return String
+     * @return read string
      */
     private String readLine() {
         System.out.print("> ");
