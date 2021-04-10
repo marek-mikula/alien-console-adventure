@@ -34,7 +34,7 @@ public class MapFactory {
         // Add items to the rooms
 
         cabin.addItem(new Diary());
-        cafeteria.addItem(new CommandersBody());
+        cafeteria.addItem(new CommandersBody(game));
         bridge.addItem(new BridgeTerminal(game));
         cargoSpaceControl.addItem(new CargoSpaceControlTerminal(game));
         cargoSpace.addItem(new Screwdriver());
