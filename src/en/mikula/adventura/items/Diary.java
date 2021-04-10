@@ -6,7 +6,7 @@ package en.mikula.adventura.items;
  */
 public class Diary extends Item implements Pickable, Usable {
 
-    public final String STORAGE_CODE = "1948";
+    public static final String STORAGE_CODE = "1948";
 
     @Override
     public String getName() {

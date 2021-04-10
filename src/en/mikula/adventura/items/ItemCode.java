@@ -12,7 +12,8 @@ public enum ItemCode {
     ITEM_4(4), // Screwdriver
     ITEM_5(5), // Escape module terminal
     ITEM_6(6), // Escape module
-    ITEM_7(7); // Cargo space card
+    ITEM_7(7), // Cargo space card
+    ITEM_8(8); // Cargo space terminal
 
     private final int number;
 

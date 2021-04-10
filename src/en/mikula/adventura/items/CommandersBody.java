@@ -33,7 +33,7 @@ public class CommandersBody extends Item implements Interactive {
 
         this.bodySearched = true;
 
-        CargoSpaceCard cargoSpaceCard = new CargoSpaceCard();
+        CargoSpaceCard cargoSpaceCard = new CargoSpaceCard(game);
 
         game.getInventory().addItem(cargoSpaceCard);
 

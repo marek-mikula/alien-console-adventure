@@ -1,10 +1,19 @@
 package en.mikula.adventura.items;
 
+import en.mikula.adventura.base.Game;
+import en.mikula.adventura.rooms.RoomCode;
+
 /**
  * @author Marek Mikula
  * @version 4/10/2021
  */
-public class CargoSpaceCard extends Item {
+public class CargoSpaceCard extends Item implements Key {
+
+    private final Game game;
+
+    public CargoSpaceCard(Game game) {
+        this.game = game;
+    }
 
     @Override
     public String getName() {
@@ -16,4 +25,18 @@ public class CargoSpaceCard extends Item {
         return ItemCode.ITEM_7;
     }
 
+    @Override
+    public String open(RoomCode roomCode) {
+        if (!game.getMap().getCurrentRoom().getRoomCode().equals(RoomCode.ROOM_1)) {
+            return "You can't open anything in this room with this room.";
+        }
+
+        if (!roomCode.equals(RoomCode.ROOM_4)) {
+            return "You can't open this room with this card!";
+        }
+
+        (game.getMap().getRoom(RoomCode.ROOM_1).getNext(RoomCode.ROOM_4.getNumber())).setIsLocked(false);
+
+        return "You swiped the card trough the terminal next to the gate to cargo space. The gate opened!";
+    }
 }

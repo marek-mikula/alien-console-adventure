@@ -5,6 +5,7 @@ import en.mikula.adventura.base.Map;
 import en.mikula.adventura.items.*;
 import en.mikula.adventura.items.terminals.BridgeTerminal;
 import en.mikula.adventura.items.terminals.CargoSpaceControlTerminal;
+import en.mikula.adventura.items.terminals.CargoSpaceTerminal;
 import en.mikula.adventura.items.terminals.EscapeModuleSectorTerminal;
 import en.mikula.adventura.rooms.*;
 
@@ -38,6 +39,7 @@ public class MapFactory {
         bridge.addItem(new BridgeTerminal(game));
         cargoSpaceControl.addItem(new CargoSpaceControlTerminal(game));
         cargoSpace.addItem(new Screwdriver());
+        cargoSpace.addItem(new CargoSpaceTerminal(game));
         escapeModuleSector.addItem(new EscapeModuleSectorTerminal(game));
         escapeModuleSector.addItem(new EscapeModule(game));
 

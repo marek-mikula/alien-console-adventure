@@ -33,6 +33,7 @@ public class CommandListFactory {
         commandList.addCommand(new DropCommand(game));
         commandList.addCommand(new ItemsCommand(game));
         commandList.addCommand(new UseCommand(game));
+        commandList.addCommand(new OpenCommand(game));
 
         return commandList;
     }

@@ -90,7 +90,7 @@ public abstract class Terminal extends Item implements Interactive {
      *
      * @return read string
      */
-    private String readLine() {
+    protected String readLine() {
         System.out.print("> ");
         return scanner.nextLine();
     }
