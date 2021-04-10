@@ -3,6 +3,7 @@ package en.mikula.adventura.items.terminals;
 import en.mikula.adventura.base.Game;
 import en.mikula.adventura.items.Interactive;
 import en.mikula.adventura.items.Item;
+import en.mikula.adventura.text.AsciArt;
 
 import java.util.Map;
 import java.util.Scanner;
@@ -65,7 +66,7 @@ public abstract class Terminal extends Item implements Interactive {
      * Shows the start screen of the terminal
      */
     private void startTerminal() {
-        System.out.println("*** Weyland-Yutani co. ***\n");
+        System.out.println(AsciArt.companyLogoTerminalArt());
     }
 
     /**

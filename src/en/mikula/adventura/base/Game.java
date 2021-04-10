@@ -1,6 +1,7 @@
 package en.mikula.adventura.base;
 
 import en.mikula.adventura.factories.MapFactory;
+import en.mikula.adventura.text.GameText;
 
 /**
  * @author Marek Mikula
@@ -26,7 +27,7 @@ public class Game {
     }
 
     public void start() {
-        StaticText.startingText();
+        GameText.startingText();
 
         while (!hasEnded) {
             try {
@@ -36,7 +37,7 @@ public class Game {
             }
         }
 
-        StaticText.endingText(timer.stopTimer());
+        GameText.endingText(timer.stopTimer());
     }
 
     public void setHasEnded(boolean hasEnded) {

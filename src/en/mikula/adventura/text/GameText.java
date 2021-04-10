@@ -1,4 +1,4 @@
-package en.mikula.adventura.base;
+package en.mikula.adventura.text;
 
 /**
  * Class used to store static texts outside of the game
@@ -8,7 +8,7 @@ package en.mikula.adventura.base;
  * @author Marek Mikula
  * @version 4/6/2021
  */
-public class StaticText {
+public class GameText {
     /**
      * Renders starting text to user
      */
