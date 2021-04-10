@@ -1,5 +1,7 @@
 package en.mikula.adventura.items;
 
+import en.mikula.adventura.text.AsciArt;
+
 /**
  * @author Marek Mikula
  * @version 4/9/2021
@@ -20,6 +22,6 @@ public class Diary extends Item implements Interactive {
 
     @Override
     public String interact() {
-        return String.format("The diary is pretty old. But there is a code to storage room [%s] on the page 5.", STORAGE_CODE);
+        return String.format(AsciArt.diaryArt(), STORAGE_CODE);
     }
 }
