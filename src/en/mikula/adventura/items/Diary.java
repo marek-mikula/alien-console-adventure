@@ -4,7 +4,7 @@ package en.mikula.adventura.items;
  * @author Marek Mikula
  * @version 4/9/2021
  */
-public class Diary extends Item implements Pickable, Usable {
+public class Diary extends Item implements Interactive {
 
     public static final String STORAGE_CODE = "1948";
 
@@ -19,7 +19,7 @@ public class Diary extends Item implements Pickable, Usable {
     }
 
     @Override
-    public String use() {
-        return String.format("The diary is pretty old. But there is a code to storage room [%s]", STORAGE_CODE);
+    public String interact() {
+        return String.format("The diary is pretty old. But there is a code to storage room [%s] on the page 5.", STORAGE_CODE);
     }
 }

@@ -24,7 +24,6 @@ public class CommandListFactory {
 
         commandList.addCommand(new HelpCommand(commandList));
         commandList.addCommand(new EndCommand(game));
-        commandList.addCommand(new WhereCommand(game));
         commandList.addCommand(new GoCommand(game));
         commandList.addCommand(new SearchCommand(game));
         commandList.addCommand(new MapCommand(game));
@@ -32,7 +31,6 @@ public class CommandListFactory {
         commandList.addCommand(new PickCommand(game));
         commandList.addCommand(new DropCommand(game));
         commandList.addCommand(new ItemsCommand(game));
-        commandList.addCommand(new UseCommand(game));
         commandList.addCommand(new OpenCommand(game));
 
         return commandList;

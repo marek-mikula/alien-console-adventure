@@ -2,9 +2,10 @@ package en.mikula.adventura.commands;
 
 import en.mikula.adventura.base.Game;
 import en.mikula.adventura.rooms.RoomCode;
+import en.mikula.adventura.rooms.RoomConnection;
 
 /**
- * Shows the map of the game with the current location
+ * Shows the map of the game with the current location and exits
  * highlighted
  *
  * @author Marek Mikula
@@ -23,7 +24,7 @@ public class MapCommand implements Command {
     }
 
     public String help() {
-        return "Shows the map of the game";
+        return "Shows the map of the game, current room and possible exits.";
     }
 
     public String run(String... args) {
@@ -40,7 +41,7 @@ public class MapCommand implements Command {
             }
         }
 
-        String map = String.join("\n", new String[]{
+        StringBuilder map = new StringBuilder(String.join("\n", new String[]{
                 "#################",
                 "#┌-┐###┌-┐###┌-┐#",
                 "#|%s|---|%s|---|%s|#",
@@ -58,9 +59,15 @@ public class MapCommand implements Command {
                 "#|%s|---------|%s|#",
                 "#└-┘#########└-┘#",
                 "#################",
-        });
+        }));
 
-        return String.format(map,
+        map.append("\nExits:");
+
+        for (RoomConnection roomConnection : game.getMap().getCurrentRoom().getConnections()) {
+            map.append("\n").append("[").append(roomConnection.getNext().getRoomCode().getNumber()).append("]").append(" ").append(roomConnection.getNext().getName());
+        }
+
+        return String.format(map.toString(),
                 numbers[RoomCode.ROOM_4.getNumber()],
                 numbers[RoomCode.ROOM_1.getNumber()],
                 numbers[RoomCode.ROOM_0.getNumber()],
