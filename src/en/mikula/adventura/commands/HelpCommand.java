@@ -3,8 +3,8 @@ package en.mikula.adventura.commands;
 import en.mikula.adventura.base.CommandList;
 
 /**
- * Shows all available commands with their signature
- * and help text
+ * Shows all available commands with their full
+ * signature and help text
  *
  * @author Marek Mikula
  * @version 4/6/2021
@@ -21,15 +21,19 @@ public class HelpCommand implements Command {
         return "help";
     }
 
+    public String fullSignature() {
+        return this.signature();
+    }
+
     public String help() {
-        return "Shows list of possible commands";
+        return "Shows list of possible commands.";
     }
 
     public String run(String... args) {
         StringBuilder response = new StringBuilder("Available commands:");
 
         for (Command command : commandList.getCommands().values()) {
-            response.append("\n").append("[").append(command.signature()).append("] - ").append(command.help());
+            response.append("\n").append("[").append(command.fullSignature()).append("] - ").append(command.help());
         }
 
         return response.toString();

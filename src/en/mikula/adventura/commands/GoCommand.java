@@ -6,6 +6,8 @@ import en.mikula.adventura.rooms.RoomConnection;
 import en.mikula.adventura.rooms.guards.RoomGuard;
 
 /**
+ * Goes to a specific room by its number
+ *
  * @author Marek Mikula
  * @version 4/9/2021
  */
@@ -21,13 +23,17 @@ public class GoCommand implements Command {
         return "go";
     }
 
+    public String fullSignature() {
+        return this.signature() + " {roomNumber|'back'}";
+    }
+
     public String help() {
         return "Moves Ellen to a different room. Use room number or 'back' keyword!";
     }
 
     public String run(String... args) {
         if (args.length == 0) {
-            return "You haven't specified the room";
+            return "You haven't specified the room number.";
         }
 
         RoomConnection next;
@@ -68,15 +74,17 @@ public class GoCommand implements Command {
 
         Room nextRoom = next.getNext();
 
+        // Loop trough the guards of the next room and see if they pass
         for (RoomGuard guard: nextRoom.getGuards()) {
             if (!guard.passed()) {
                 return guard.errorMessage();
             }
         }
 
+        // Change current room to the next room
         game.getMap().changeCurrentRoom(nextRoom);
 
-        return "You entered room [" + nextRoom.getName() + "]";
+        return "You entered the room [" + nextRoom.getName() + "].";
     }
 
 }

@@ -12,20 +12,24 @@ import java.util.Set;
  * @author Marek Mikula
  * @version 4/6/2021
  */
-public class ItemsCommand implements Command {
+public class InventoryCommand implements Command {
 
     private final Game game;
 
-    public ItemsCommand(Game game) {
+    public InventoryCommand(Game game) {
         this.game = game;
     }
 
     public String signature() {
-        return "items";
+        return "inventory";
+    }
+
+    public String fullSignature() {
+        return this.signature();
     }
 
     public String help() {
-        return "Lists all items in the inventory";
+        return "Lists all items in the inventory.";
     }
 
     public String run(String... args) {

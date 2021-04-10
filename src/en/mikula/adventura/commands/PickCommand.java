@@ -5,7 +5,7 @@ import en.mikula.adventura.items.Item;
 import en.mikula.adventura.items.Pickable;
 
 /**
- * Picks and item
+ * Picks and item in the current room
  *
  * @author Marek Mikula
  * @version 4/6/2021
@@ -22,8 +22,13 @@ public class PickCommand implements Command {
         return "pick";
     }
 
+    @Override
+    public String fullSignature() {
+        return this.signature() + " {itemNumber}";
+    }
+
     public String help() {
-        return "Picks an item. Use the item number.";
+        return "Picks an item in the current room.";
     }
 
     public String run(String... args) {
@@ -48,10 +53,13 @@ public class PickCommand implements Command {
             return "You can't pick this item.";
         }
 
+        // Remove the item from the current room
         game.getMap().getCurrentRoom().removeItem(item);
+
+        // Put the item in the inventory
         game.getInventory().addItem(item);
 
-        return "You picked an item [" + item.getName() + "].";
+        return "You picked the item [" + item.getName() + "].";
     }
 
 }

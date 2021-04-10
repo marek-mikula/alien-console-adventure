@@ -5,8 +5,8 @@ import en.mikula.adventura.rooms.RoomCode;
 import en.mikula.adventura.rooms.RoomConnection;
 
 /**
- * Shows the map of the game with the current location and exits
- * highlighted
+ * Shows the map of the game with the current highlighted
+ * room and available exits
  *
  * @author Marek Mikula
  * @version 4/6/2021
@@ -21,6 +21,10 @@ public class MapCommand implements Command {
 
     public String signature() {
         return "map";
+    }
+
+    public String fullSignature() {
+        return this.signature();
     }
 
     public String help() {
@@ -63,6 +67,7 @@ public class MapCommand implements Command {
 
         map.append("\nExits:");
 
+        // Append list of available exits
         for (RoomConnection roomConnection : game.getMap().getCurrentRoom().getConnections()) {
             map.append("\n").append("[").append(roomConnection.getNext().getRoomCode().getNumber()).append("]").append(" ").append(roomConnection.getNext().getName());
         }

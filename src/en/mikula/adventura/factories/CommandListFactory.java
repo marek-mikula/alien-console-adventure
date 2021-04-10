@@ -23,14 +23,13 @@ public class CommandListFactory {
         CommandList commandList = new CommandList();
 
         commandList.addCommand(new HelpCommand(commandList));
-        commandList.addCommand(new EndCommand(game));
         commandList.addCommand(new GoCommand(game));
         commandList.addCommand(new SearchCommand(game));
         commandList.addCommand(new MapCommand(game));
         commandList.addCommand(new InteractCommand(game));
         commandList.addCommand(new PickCommand(game));
         commandList.addCommand(new DropCommand(game));
-        commandList.addCommand(new ItemsCommand(game));
+        commandList.addCommand(new InventoryCommand(game));
         commandList.addCommand(new OpenCommand(game));
 
         return commandList;

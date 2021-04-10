@@ -5,10 +5,12 @@ import en.mikula.adventura.items.Interactive;
 import en.mikula.adventura.items.Item;
 
 /**
- * Interacts with an item
+ * Interacts with an item in the room
+ * f.i. terminals
  *
  * @author Marek Mikula
  * @version 4/6/2021
+ * @see en.mikula.adventura.items.terminals.Terminal
  */
 public class InteractCommand implements Command {
 
@@ -22,8 +24,12 @@ public class InteractCommand implements Command {
         return "interact";
     }
 
+    public String fullSignature() {
+        return this.signature() + " {itemNumber}";
+    }
+
     public String help() {
-        return "Interacts with an item";
+        return "Interacts with an item in the current room.";
     }
 
     public String run(String... args) {
@@ -41,7 +47,7 @@ public class InteractCommand implements Command {
         }
 
         if (item == null) {
-            return "There is no such item in the room.";
+            return "There is no such item in the current room.";
         }
 
         if (!(item instanceof Interactive)) {

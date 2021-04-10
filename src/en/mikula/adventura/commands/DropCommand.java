@@ -2,10 +2,9 @@ package en.mikula.adventura.commands;
 
 import en.mikula.adventura.base.Game;
 import en.mikula.adventura.items.Item;
-import en.mikula.adventura.items.Pickable;
 
 /**
- * Drops and item
+ * Drops an item by its number
  *
  * @author Marek Mikula
  * @version 4/6/2021
@@ -22,8 +21,12 @@ public class DropCommand implements Command {
         return "drop";
     }
 
+    public String fullSignature() {
+        return this.signature() + " {itemNumber}";
+    }
+
     public String help() {
-        return "Drops an item. Use the item number.";
+        return "Drops an item. Use an item number as a first argument.";
     }
 
     public String run(String... args) {
@@ -41,13 +44,16 @@ public class DropCommand implements Command {
         }
 
         if (item == null) {
-            return "There is no such item in the inventory.";
+            return "There is no such item in your inventory.";
         }
 
+        // Drop the item to the current room
         game.getMap().getCurrentRoom().addItem(item);
+
+        // Remove the item from the inventory
         game.getInventory().removeItem(item);
 
-        return "You dropped an item [" + item.getName() + "].";
+        return "You dropped the item [" + item.getName() + "].";
     }
 
 }

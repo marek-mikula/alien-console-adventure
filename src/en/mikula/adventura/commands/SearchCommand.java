@@ -6,6 +6,9 @@ import en.mikula.adventura.items.Item;
 import java.util.HashSet;
 
 /**
+ * Searches the current room showing all
+ * available items
+ *
  * @author Marek Mikula
  * @version 4/9/2021
  */
@@ -21,8 +24,12 @@ public class SearchCommand implements Command {
         return "search";
     }
 
+    public String fullSignature() {
+        return this.signature();
+    }
+
     public String help() {
-        return "Searches the current room and shows list of items";
+        return "Searches the current room and shows list of available items.";
     }
 
     public String run(String... args) {

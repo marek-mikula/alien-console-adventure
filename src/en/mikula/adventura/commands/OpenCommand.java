@@ -6,7 +6,8 @@ import en.mikula.adventura.items.Key;
 import en.mikula.adventura.rooms.RoomConnection;
 
 /**
- * Opens the connection between rooms
+ * Opens the connection between rooms using
+ * an item from the inventory
  *
  * @author Marek Mikula
  * @version 4/6/2021
@@ -23,13 +24,17 @@ public class OpenCommand implements Command {
         return "open";
     }
 
+    public String fullSignature() {
+        return this.signature() + " {roomNumber} {itemNumber}";
+    }
+
     public String help() {
-        return "Opens the connection between rooms with an item. Supply room code as a first argument and item code as a second";
+        return "Opens the connection between rooms with an item from the inventory.";
     }
 
     public String run(String... args) {
         if (args.length < 2) {
-            return "You haven't specified the item code or room code.";
+            return "You haven't specified an item code or a room code.";
         }
 
         Item item;
