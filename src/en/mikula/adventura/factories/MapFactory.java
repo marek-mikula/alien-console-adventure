@@ -9,6 +9,7 @@ import en.mikula.adventura.items.terminals.CargoSpaceTerminal;
 import en.mikula.adventura.items.terminals.EscapeModuleSectorTerminal;
 import en.mikula.adventura.rooms.*;
 import en.mikula.adventura.rooms.guards.CargoSpaceAlienGuard;
+import en.mikula.adventura.rooms.guards.CargoSpacePlatformOpenedGuard;
 
 /**
  * @author Marek Mikula
@@ -37,6 +38,7 @@ public class MapFactory {
         // Add guards
 
         cargoSpace.addGuard(new CargoSpaceAlienGuard(game));
+        cargoSpace.addGuard(new CargoSpacePlatformOpenedGuard(game));
 
         // Add items to the rooms
 
