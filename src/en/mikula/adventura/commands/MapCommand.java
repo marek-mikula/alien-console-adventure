@@ -30,11 +30,11 @@ public class MapCommand implements Command {
     public String run(String... args) {
         String[] numbers = new String[RoomCode.values().length];
 
-        int currentRoomNumber = game.getMap().getCurrentRoom().getRoomCode().getNumber();
+        RoomCode currentRoomCode = game.getMap().getCurrentRoom().getRoomCode();
 
         // Loop trough all the room codes and highlight current room using ANSI escape codes
         for (RoomCode roomCode: RoomCode.values()) {
-            if (currentRoomNumber == roomCode.getNumber()) {
+            if (currentRoomCode.equals(roomCode)) {
                 numbers[roomCode.getNumber()] = "\u001B[32m" + roomCode.getNumber() + "\u001B[0m";
             } else {
                 numbers[roomCode.getNumber()] = "" + roomCode.getNumber();

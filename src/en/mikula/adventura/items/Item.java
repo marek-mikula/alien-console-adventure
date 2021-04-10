@@ -21,7 +21,7 @@ public abstract class Item {
             return false;
         }
         Item room = (Item) o;
-        return room.getCode().getNumber() == this.getCode().getNumber();
+        return room.getCode().equals(this.getCode());
     }
 
     @Override

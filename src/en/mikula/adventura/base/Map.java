@@ -36,7 +36,7 @@ public class Map {
 
     public Room getRoom(RoomCode roomCode) {
         for (Room room: rooms) {
-            if (room.getRoomCode().getNumber() == roomCode.getNumber()) {
+            if (room.getRoomCode().equals(roomCode)) {
                 return room;
             }
         }

@@ -115,7 +115,7 @@ public abstract class Room {
             return false;
         }
         Room room = (Room) o;
-        return room.getRoomCode().getNumber() == this.getRoomCode().getNumber();
+        return room.getRoomCode().equals(this.getRoomCode());
     }
 
     @Override
