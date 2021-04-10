@@ -10,7 +10,8 @@ public enum ItemCode {
     ITEM_2(2), // Commander's body
     ITEM_3(3), // Cargo space terminal
     ITEM_4(4), // Screwdriver
-    ITEM_5(5); // Escape module terminal
+    ITEM_5(5), // Escape module terminal
+    ITEM_6(6); // Escape module
 
     private final int number;
 

@@ -39,6 +39,7 @@ public class MapFactory {
         cargoSpaceControl.addItem(new CargoSpaceControlTerminal(game));
         cargoSpace.addItem(new Screwdriver());
         escapeModuleSector.addItem(new EscapeModuleSectorTerminal(game));
+        escapeModuleSector.addItem(new EscapeModule(game));
 
         // Create connections between rooms
 
@@ -74,7 +75,7 @@ public class MapFactory {
         map.addRoom(storage);
 
         // Set default room
-        map.changeCurrentRoom(escapeModuleSector);
+        map.changeCurrentRoom(cabin);
 
         return map;
     }

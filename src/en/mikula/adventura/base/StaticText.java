@@ -29,10 +29,11 @@ public class StaticText {
      * Renders ending text to user
      */
     public static void endingText(long time) {
-
-        System.out.println(time);
-
-        String[] text = {"Díky", "Čau", "Čas: " + (time / 1000)};
+        String[] text = {
+                "The end",
+                "It took you " + (time / 1000) + " seconds to finish the game.",
+                "Thanks for playing, Marek Mikula"
+        };
         System.out.println(String.join("\n", text));
     }
 
