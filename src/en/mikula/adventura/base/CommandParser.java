@@ -48,4 +48,7 @@ public class CommandParser {
         return commandList.getCommand(signature).run(Arrays.copyOfRange(words, 1, words.length));
     }
 
+    public CommandList getCommandList() {
+        return commandList;
+    }
 }

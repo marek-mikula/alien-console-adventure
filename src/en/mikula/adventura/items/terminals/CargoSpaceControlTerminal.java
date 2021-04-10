@@ -53,8 +53,15 @@ public class CargoSpaceControlTerminal extends Terminal {
     protected void handleInteraction(int optionCode) {
         switch (optionCode) {
             case OPTION_0:
-                ((CargoSpace) game.getMap().getRoom(RoomCode.ROOM_4)).setIsRampOpened(true);
+                CargoSpace cargoSpace = (CargoSpace) game.getMap().getRoom(RoomCode.ROOM_4);
+
+                cargoSpace.setIsRampOpened(true);
                 System.out.println("The ramp of the cargo space has been opened!");
+
+                if (cargoSpace.isAlienHere()) {
+                    cargoSpace.setIsAlienHere(false);
+                    System.out.println("The monsters in the cargo space should be now gone!");
+                }
                 break;
             case OPTION_1:
                 ((CargoSpace) game.getMap().getRoom(RoomCode.ROOM_4)).setIsRampOpened(false);

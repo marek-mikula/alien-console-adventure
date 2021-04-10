@@ -10,6 +10,8 @@ public class CargoSpace extends Room {
 
     private boolean isRampOpened = false;
 
+    private boolean isAlienHere = true;
+
     public CargoSpace(Game game) {
         super(game);
     }
@@ -32,4 +34,11 @@ public class CargoSpace extends Room {
         return isRampOpened;
     }
 
+    public void setIsAlienHere(boolean isAlienHere) {
+        this.isAlienHere = isAlienHere;
+    }
+
+    public boolean isAlienHere() {
+        return isAlienHere;
+    }
 }

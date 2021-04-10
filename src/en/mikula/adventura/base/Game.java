@@ -50,4 +50,8 @@ public class Game {
     public Inventory getInventory() {
         return inventory;
     }
+
+    public InputReader getInputReader() {
+        return inputReader;
+    }
 }
