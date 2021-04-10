@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author Marek Mikula
  * @version 4/9/2021
  */
-public abstract class Terminal implements Item, Interactive {
+public abstract class Terminal extends Item implements Interactive {
 
     private final Scanner scanner;
 

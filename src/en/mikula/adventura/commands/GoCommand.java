@@ -10,8 +10,6 @@ import en.mikula.adventura.rooms.RoomConnection;
  */
 public class GoCommand implements Command {
 
-    private final String BACK_KEYWORD = "back";
-
     private final Game game;
 
     public GoCommand(Game game) {
@@ -23,7 +21,7 @@ public class GoCommand implements Command {
     }
 
     public String help() {
-        return "Moves Ellen to a different room. Use room number instead the label!";
+        return "Moves Ellen to a different room. Use room number or 'back' keyword!";
     }
 
     public String run(String... args) {
@@ -31,14 +29,14 @@ public class GoCommand implements Command {
             return "You haven't specified the room";
         }
 
-        RoomConnection next = null;
+        RoomConnection next;
 
         // Try to parse the int in first argument and pass it to the method
         try {
             next = game.getMap().getCurrentRoom().getNext(Integer.parseInt(args[0]));
         } catch (NumberFormatException exception) {
             // User used the BACK keyword to go to previous room
-            if (args[0].equals(this.BACK_KEYWORD)) {
+            if (args[0].equals("back")) {
                 Room previousRoom = game.getMap().getPreviousRoom();
 
                 if (previousRoom == null) {

@@ -8,7 +8,7 @@ import en.mikula.adventura.rooms.RoomCode;
  * @author Marek Mikula
  * @version 4/9/2021
  */
-public class EscapeModule implements Item, Interactive {
+public class EscapeModule extends Item implements Interactive {
 
     private final Game game;
 

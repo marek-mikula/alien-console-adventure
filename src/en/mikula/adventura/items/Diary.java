@@ -4,7 +4,7 @@ package en.mikula.adventura.items;
  * @author Marek Mikula
  * @version 4/9/2021
  */
-public class Diary implements Item{
+public class Diary extends Item implements Pickable {
 
     @Override
     public String getName() {

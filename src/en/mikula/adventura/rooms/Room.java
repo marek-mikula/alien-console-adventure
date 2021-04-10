@@ -25,14 +25,6 @@ public abstract class Room {
         this.game = game;
     }
 
-    public boolean addItem(Item item) {
-        return items.add(item);
-    }
-
-    public HashSet<Item> getItems() {
-        return items;
-    }
-
     /**
      * Adds a new connection to the set
      *
@@ -66,6 +58,18 @@ public abstract class Room {
         }
 
         return null;
+    }
+
+    public boolean addItem(Item item) {
+        return items.add(item);
+    }
+
+    public HashSet<Item> getItems() {
+        return items;
+    }
+
+    public boolean removeItem(Item item) {
+        return items.remove(item);
     }
 
     /**

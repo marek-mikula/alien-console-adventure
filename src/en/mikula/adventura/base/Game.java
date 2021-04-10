@@ -12,17 +12,17 @@ public class Game {
 
     private final Timer timer;
 
-    private final Player player;
-
     private final Map map;
+
+    private final Inventory inventory;
 
     private boolean hasEnded = false;
 
     public Game() {
         inputReader = new InputReader(this);
-        player = new Player(this);
         timer = new Timer();
         map = MapFactory.buildMap(this);
+        inventory = new Inventory(this);
     }
 
     public void start() {
@@ -47,8 +47,7 @@ public class Game {
         return map;
     }
 
-    public Player getPlayer() {
-        return player;
+    public Inventory getInventory() {
+        return inventory;
     }
-
 }

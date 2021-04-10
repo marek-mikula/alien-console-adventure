@@ -1,29 +1,29 @@
 package en.mikula.adventura.commands;
 
 import en.mikula.adventura.base.Game;
-import en.mikula.adventura.items.Interactive;
 import en.mikula.adventura.items.Item;
+import en.mikula.adventura.items.Pickable;
 
 /**
- * Interacts with an item
+ * Drops and item
  *
  * @author Marek Mikula
  * @version 4/6/2021
  */
-public class InteractCommand implements Command {
+public class DropCommand implements Command {
 
     private final Game game;
 
-    public InteractCommand(Game game) {
+    public DropCommand(Game game) {
         this.game = game;
     }
 
     public String signature() {
-        return "interact";
+        return "drop";
     }
 
     public String help() {
-        return "Interacts with an item";
+        return "Drops an item. Use the item number.";
     }
 
     public String run(String... args) {
@@ -35,20 +35,19 @@ public class InteractCommand implements Command {
 
         // Try to parse the int in first argument and pass it to the method
         try {
-            item = game.getMap().getCurrentRoom().getItem(Integer.parseInt(args[0]));
+            item = game.getInventory().getItem(Integer.parseInt(args[0]));
         } catch (NumberFormatException exception) {
             return "You have to enter the number of an item as a first argument.";
         }
 
         if (item == null) {
-            return "There is no such item in the room.";
+            return "There is no such item in the inventory.";
         }
 
-        if (!(item instanceof Interactive)) {
-            return "You can't interact with this item.";
-        }
+        game.getMap().getCurrentRoom().addItem(item);
+        game.getInventory().removeItem(item);
 
-        return ((Interactive) item).interact();
+        return "You dropped an item [" + item.getName() + "].";
     }
 
 }

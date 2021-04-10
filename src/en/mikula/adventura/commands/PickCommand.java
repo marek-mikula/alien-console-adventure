@@ -1,29 +1,29 @@
 package en.mikula.adventura.commands;
 
 import en.mikula.adventura.base.Game;
-import en.mikula.adventura.items.Interactive;
 import en.mikula.adventura.items.Item;
+import en.mikula.adventura.items.Pickable;
 
 /**
- * Interacts with an item
+ * Picks and item
  *
  * @author Marek Mikula
  * @version 4/6/2021
  */
-public class InteractCommand implements Command {
+public class PickCommand implements Command {
 
     private final Game game;
 
-    public InteractCommand(Game game) {
+    public PickCommand(Game game) {
         this.game = game;
     }
 
     public String signature() {
-        return "interact";
+        return "pick";
     }
 
     public String help() {
-        return "Interacts with an item";
+        return "Picks an item. Use the item number.";
     }
 
     public String run(String... args) {
@@ -44,11 +44,14 @@ public class InteractCommand implements Command {
             return "There is no such item in the room.";
         }
 
-        if (!(item instanceof Interactive)) {
-            return "You can't interact with this item.";
+        if (!(item instanceof Pickable)) {
+            return "You can't pick this item.";
         }
 
-        return ((Interactive) item).interact();
+        game.getMap().getCurrentRoom().removeItem(item);
+        game.getInventory().addItem(item);
+
+        return "You picked an item [" + item.getName() + "].";
     }
 
 }

@@ -4,7 +4,7 @@ package en.mikula.adventura.items;
  * @author Marek Mikula
  * @version 4/9/2021
  */
-public class CommandersBody implements Item {
+public class CommandersBody extends Item {
 
     @Override
     public String getName() {
