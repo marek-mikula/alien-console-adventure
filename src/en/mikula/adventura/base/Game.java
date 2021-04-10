@@ -52,7 +52,4 @@ public class Game {
         return inventory;
     }
 
-    public InputReader getInputReader() {
-        return inputReader;
-    }
 }

@@ -29,10 +29,6 @@ public class InputReader {
         return commandParser.parseCommand(this.readLine());
     }
 
-    public CommandParser getCommandParser() {
-        return commandParser;
-    }
-
     /**
      * Reads input from user using Scanner
      *
