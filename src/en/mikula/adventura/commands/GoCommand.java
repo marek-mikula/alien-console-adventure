@@ -3,6 +3,7 @@ package en.mikula.adventura.commands;
 import en.mikula.adventura.base.Game;
 import en.mikula.adventura.rooms.Room;
 import en.mikula.adventura.rooms.RoomConnection;
+import en.mikula.adventura.rooms.guards.RoomGuard;
 
 /**
  * @author Marek Mikula
@@ -66,6 +67,12 @@ public class GoCommand implements Command {
         }
 
         Room nextRoom = next.getNext();
+
+        for (RoomGuard guard: nextRoom.getGuards()) {
+            if (!guard.passed()) {
+                return guard.errorMessage();
+            }
+        }
 
         game.getMap().changeCurrentRoom(nextRoom);
 

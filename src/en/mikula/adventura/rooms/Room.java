@@ -3,8 +3,11 @@ package en.mikula.adventura.rooms;
 import en.mikula.adventura.base.Game;
 import en.mikula.adventura.items.Item;
 import en.mikula.adventura.items.ItemCode;
+import en.mikula.adventura.rooms.guards.RoomGuard;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -19,11 +22,7 @@ public abstract class Room {
 
     private final HashSet<Item> items = new HashSet<>();
 
-    private final Game game;
-
-    public Room(Game game) {
-        this.game = game;
-    }
+    private final List<RoomGuard> guards = new ArrayList<>();
 
     /**
      * Adds a new connection to the set
@@ -87,6 +86,14 @@ public abstract class Room {
         }
 
         return null;
+    }
+
+    public boolean addGuard(RoomGuard guard) {
+        return guards.add(guard);
+    }
+
+    public List<RoomGuard> getGuards() {
+        return guards;
     }
 
     /**

@@ -8,6 +8,7 @@ import en.mikula.adventura.items.terminals.CargoSpaceControlTerminal;
 import en.mikula.adventura.items.terminals.CargoSpaceTerminal;
 import en.mikula.adventura.items.terminals.EscapeModuleSectorTerminal;
 import en.mikula.adventura.rooms.*;
+import en.mikula.adventura.rooms.guards.CargoSpaceAlienGuard;
 
 /**
  * @author Marek Mikula
@@ -24,14 +25,18 @@ public class MapFactory {
     public static Map buildMap(Game game) {
         Map map = new Map();
 
-        Room bridge = new Bridge(game);
-        Room cabin = new Cabin(game);
-        Room cafeteria = new Cafeteria(game);
-        Room cargoSpace = new CargoSpace(game);
-        Room cargoSpaceControl = new CargoSpaceControl(game);
-        Room escapeModuleSector = new EscapeModuleSector(game);
-        Room storage = new Storage(game);
-        Room ventilation = new Ventilation(game);
+        Room bridge = new Bridge();
+        Room cabin = new Cabin();
+        Room cafeteria = new Cafeteria();
+        Room cargoSpace = new CargoSpace();
+        Room cargoSpaceControl = new CargoSpaceControl();
+        Room escapeModuleSector = new EscapeModuleSector();
+        Room storage = new Storage();
+        Room ventilation = new Ventilation();
+
+        // Add guards
+
+        cargoSpace.addGuard(new CargoSpaceAlienGuard(game));
 
         // Add items to the rooms
 
