@@ -1,8 +1,8 @@
 package en.mikula.adventure.items.terminals;
 
 import en.mikula.adventure.base.Game;
+import en.mikula.adventure.items.EscapeModule;
 import en.mikula.adventure.items.ItemCode;
-import en.mikula.adventure.rooms.EscapeModuleSector;
 import en.mikula.adventure.rooms.RoomCode;
 
 import java.util.ArrayList;
@@ -32,9 +32,9 @@ public class EscapeModuleSectorTerminal extends Terminal {
     protected List<String> getOptions() {
         List<String> options = new ArrayList<>();
 
-        EscapeModuleSector cargoSpace = (EscapeModuleSector) game.getMap().getRoom(RoomCode.ROOM_7);
+        EscapeModule escapeModule = (EscapeModule) game.getMap().getRoom(RoomCode.ROOM_7).getItem(ItemCode.ITEM_6.getNumber());
 
-        if (!cargoSpace.isModuleReady()) {
+        if (!escapeModule.isModuleReady()) {
             options.add("Get the escape module ready");
         }
 
@@ -47,7 +47,7 @@ public class EscapeModuleSectorTerminal extends Terminal {
     protected void handleInteraction(int optionCode) {
         switch (optionCode) {
             case 0: // prepare escape module
-                ((EscapeModuleSector) game.getMap().getRoom(RoomCode.ROOM_7)).setIsModuleReady(true);
+                ((EscapeModule) game.getMap().getRoom(RoomCode.ROOM_7).getItem(ItemCode.ITEM_6.getNumber())).setIsModuleReady(true);
                 System.out.println("Escape module is ready to go!");
                 break;
             case 1:

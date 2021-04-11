@@ -12,6 +12,8 @@ public class EscapeModule extends Item implements Interactive {
 
     private final Game game;
 
+    private boolean isModuleReady = false;
+
     public EscapeModule(Game game) {
         this.game = game;
     }
@@ -28,13 +30,21 @@ public class EscapeModule extends Item implements Interactive {
 
     @Override
     public String interact() {
-        EscapeModuleSector cargoSpace = (EscapeModuleSector) game.getMap().getRoom(RoomCode.ROOM_7);
-
-        if (!cargoSpace.isModuleReady()) {
+        if (!isModuleReady) {
             return "The module is not ready to go. You have to prepare the module trough the terminal.";
         }
 
+        // End the main game loop
         game.setHasEnded(true);
+
         return "You successfully escaped the ship!";
+    }
+
+    public void setIsModuleReady(boolean isModuleReady) {
+        this.isModuleReady = isModuleReady;
+    }
+
+    public boolean isModuleReady() {
+        return isModuleReady;
     }
 }
