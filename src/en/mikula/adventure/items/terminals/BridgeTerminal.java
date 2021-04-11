@@ -30,8 +30,9 @@ public class BridgeTerminal extends Terminal {
     protected List<String> getOptions() {
         List<String> options = new ArrayList<>();
 
-        options.add("Show status of escape modules"); // option 0
-        options.add("Close terminal"); // option 1
+        options.add("Show last diary entry"); // option 0
+        options.add("Show status of escape modules"); // option 1
+        options.add("Close terminal"); // option 2
 
         return options;
     }
@@ -39,11 +40,15 @@ public class BridgeTerminal extends Terminal {
     @Override
     protected void handleInteraction(int optionCode) {
         switch (optionCode) {
-            case 0: // status of escape modules
+            case 0: // last diary entry
+                System.out.println("18.02.2159 01:16 - The miners should be there by like one hour. There were supposed to be some ill miners as the shift leader stated that something jumped on their heads while working in the mine. At least they got it off their heads and they are on their way to Nostromo. But I am really worried about them because they were not responding for the last couple hours of the flight...");
+                System.out.println("18.02.2159 03:16 - The ship just arrived, no one is responding. We'll go to check the ship out. Ryan");
+                break;
+            case 1: // status of escape modules
                 System.out.println("Number of escape modules used: 36");
                 System.out.println("Number of escape modules left: 1");
                 break;
-            case 1: // close terminal
+            case 2: // close terminal
                 active = false;
                 break;
             default:
