@@ -13,7 +13,7 @@ public class Ventilation extends Room {
 
     @Override
     public RoomCode getRoomCode() {
-        return RoomCode.ROOM_7;
+        return RoomCode.ROOM_6;
     }
 
 }

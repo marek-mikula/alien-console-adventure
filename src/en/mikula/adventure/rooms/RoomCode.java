@@ -13,8 +13,8 @@ public enum RoomCode {
     ROOM_3(3), // Cargo space control room
     ROOM_4(4), // Cargo space
     ROOM_5(5), // Storage
-    ROOM_6(6), // Escape module sector
-    ROOM_7(7); // Ventilation
+    ROOM_6(6), // Ventilation
+    ROOM_7(7); // Escape module sector
 
     private final int number;
 

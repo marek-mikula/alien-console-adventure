@@ -28,7 +28,7 @@ public class EscapeModule extends Item implements Interactive {
 
     @Override
     public String interact() {
-        EscapeModuleSector cargoSpace = (EscapeModuleSector) game.getMap().getRoom(RoomCode.ROOM_6);
+        EscapeModuleSector cargoSpace = (EscapeModuleSector) game.getMap().getRoom(RoomCode.ROOM_7);
 
         if (!cargoSpace.isModuleReady()) {
             return "The module is not ready to go. You have to prepare the module trough the terminal.";

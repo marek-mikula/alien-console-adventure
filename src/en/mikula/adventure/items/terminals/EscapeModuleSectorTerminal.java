@@ -35,7 +35,7 @@ public class EscapeModuleSectorTerminal extends Terminal {
     protected Map<Integer, String> getOptions() {
         Map<Integer, String> options = new HashMap<>();
 
-        EscapeModuleSector cargoSpace = (EscapeModuleSector) game.getMap().getRoom(RoomCode.ROOM_6);
+        EscapeModuleSector cargoSpace = (EscapeModuleSector) game.getMap().getRoom(RoomCode.ROOM_7);
 
         if (!cargoSpace.isModuleReady()) {
             options.put(OPTION_0, "Get the escape module ready");
@@ -50,7 +50,7 @@ public class EscapeModuleSectorTerminal extends Terminal {
     protected void handleInteraction(int optionCode) {
         switch (optionCode) {
             case OPTION_0:
-                ((EscapeModuleSector) game.getMap().getRoom(RoomCode.ROOM_6)).setIsModuleReady(true);
+                ((EscapeModuleSector) game.getMap().getRoom(RoomCode.ROOM_7)).setIsModuleReady(true);
                 System.out.println("Escape module is ready to go!");
                 break;
             case OPTION_1:

@@ -12,13 +12,18 @@ import en.mikula.adventure.rooms.guards.CargoSpaceAlienGuard;
 import en.mikula.adventure.rooms.guards.CargoSpacePlatformOpenedGuard;
 
 /**
+ * Factory used to build the map
+ *
  * @author Marek Mikula
  * @version 4/9/2021
  */
 public class MapFactory {
 
     /**
-     * Build the rooms and their connections
+     * Builds the rooms filled with guards, items
+     * and their connections
+     *
+     * Sets the default room to cabin
      *
      * @param game game instance
      * @return built map

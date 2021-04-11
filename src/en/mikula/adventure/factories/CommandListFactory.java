@@ -5,7 +5,7 @@ import en.mikula.adventure.base.Game;
 import en.mikula.adventure.commands.*;
 
 /**
- * Builds the command list
+ * Factory used to build the command list
  *
  * @author Marek Mikula
  * @version 4/6/2021

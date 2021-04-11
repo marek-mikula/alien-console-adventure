@@ -15,7 +15,7 @@ public class EscapeModuleSector extends Room {
 
     @Override
     public RoomCode getRoomCode() {
-        return RoomCode.ROOM_6;
+        return RoomCode.ROOM_7;
     }
 
     public void setIsModuleReady(boolean isModuleReady) {

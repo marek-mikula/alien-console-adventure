@@ -46,23 +46,23 @@ public class MapCommand implements Command {
         }
 
         StringBuilder map = new StringBuilder(String.join("\n", new String[]{
-                "#################",
-                "#┌-┐###┌-┐###┌-┐#",
-                "#|%s|---|%s|---|%s|#",
-                "#└-┘###└-┘###└-┘#",
-                "##|#####|##\\#####",
-                "##|####┌-┐###┌-┐#",
-                "##|####|%s|###|%s|#",
-                "##|####└-┘###└-┘#",
-                "##|#####|#####|##",
-                "##|####┌-┐####|##",
-                "##|####|%s|####|##",
-                "##|####└-┘####|##",
-                "##|###########|##",
-                "#┌-┐#########┌-┐#",
-                "#|%s|---------|%s|#",
-                "#└-┘#########└-┘#",
-                "#################",
+                "┌───────────────────────┐",
+                "│ ┌───┐   ┌───┐   ┌───┐ │",
+                "│ │ %s ├───┤ %s ├───┤ %s │ │",
+                "│ └─┬─┘   └─┬─┘   └───┘ │",
+                "│   │       |           │",
+                "│   │     ┌─┴─┐   ┌───┐ │",
+                "│   │     | %s |   | %s │ │",
+                "│   │     └─┬─┘   └─┬─┘ │",
+                "│   │       |       │   │",
+                "│   │     ┌─┴─┐     │   │",
+                "│   │     | %s |     │   │",
+                "│   │     └───┘     │   │",
+                "│   │               │   │",
+                "│ ┌─┴─┐           ┌─┴─┐ │",
+                "│ | %s ├───────────┤ %s │ │",
+                "│ └───┘           └───┘ │",
+                "└───────────────────────┘",
         }));
 
         map.append("\nExits:");
@@ -77,10 +77,10 @@ public class MapCommand implements Command {
                 numbers[RoomCode.ROOM_1.getNumber()],
                 numbers[RoomCode.ROOM_0.getNumber()],
                 numbers[RoomCode.ROOM_2.getNumber()],
-                numbers[RoomCode.ROOM_6.getNumber()],
+                numbers[RoomCode.ROOM_7.getNumber()],
                 numbers[RoomCode.ROOM_3.getNumber()],
                 numbers[RoomCode.ROOM_5.getNumber()],
-                numbers[RoomCode.ROOM_7.getNumber()]
+                numbers[RoomCode.ROOM_6.getNumber()]
                 );
     }
 

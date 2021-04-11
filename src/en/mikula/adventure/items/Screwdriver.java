@@ -31,11 +31,11 @@ public class Screwdriver extends Item implements Pickable, Key {
             return "You can't open anything in this room with this screwdriver.";
         }
 
-        if (!roomCode.equals(RoomCode.ROOM_7)) {
+        if (!roomCode.equals(RoomCode.ROOM_6)) {
             return "You can't open this room with this card!";
         }
 
-        (game.getMap().getRoom(RoomCode.ROOM_5).getNext(RoomCode.ROOM_7.getNumber())).setIsLocked(false);
+        (game.getMap().getRoom(RoomCode.ROOM_5).getNext(RoomCode.ROOM_6.getNumber())).setIsLocked(false);
 
         return "You used the screwdriver to remove the screws from a cover of the ventilation. The path is opened!";
     }
