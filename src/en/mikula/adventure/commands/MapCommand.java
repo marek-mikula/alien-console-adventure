@@ -65,11 +65,11 @@ public class MapCommand implements Command {
                 "└───────────────────────┘",
         }));
 
-        map.append("\nExits:");
-
-        // Append list of available exits
-        for (RoomConnection roomConnection : game.getMap().getCurrentRoom().getConnections()) {
-            map.append("\n").append("[").append(roomConnection.getNext().getRoomCode().getNumber()).append("]").append(" ").append(roomConnection.getNext().getName());
+        // Append list of available rooms
+        for (RoomCode roomCode : RoomCode.values()) {
+            map.append("\n").append("[").append(roomCode.getNumber()).append("]").append(" ").append(
+                    game.getMap().getRoom(roomCode).getName()
+            );
         }
 
         return String.format(map.toString(),
