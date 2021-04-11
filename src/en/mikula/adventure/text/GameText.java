@@ -1,7 +1,7 @@
 package en.mikula.adventure.text;
 
 /**
- * Class used to store static texts outside of the game
+ * Class used to store static texts outside of the Game
  * class so the main game class won't be bothered with
  * these long methods
  *
@@ -9,6 +9,7 @@ package en.mikula.adventure.text;
  * @version 4/6/2021
  */
 public class GameText {
+
     /**
      * Renders starting text to user
      */
