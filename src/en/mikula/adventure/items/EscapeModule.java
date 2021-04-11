@@ -18,6 +18,14 @@ public class EscapeModule extends Item implements Interactive {
         this.game = game;
     }
 
+    public void setIsModuleReady(boolean isModuleReady) {
+        this.isModuleReady = isModuleReady;
+    }
+
+    public boolean isModuleReady() {
+        return isModuleReady;
+    }
+
     @Override
     public String getName() {
         return "Escape module";
@@ -38,13 +46,5 @@ public class EscapeModule extends Item implements Interactive {
         game.setHasEnded(true);
 
         return "You successfully escaped the ship!";
-    }
-
-    public void setIsModuleReady(boolean isModuleReady) {
-        this.isModuleReady = isModuleReady;
-    }
-
-    public boolean isModuleReady() {
-        return isModuleReady;
     }
 }

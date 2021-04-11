@@ -15,4 +15,5 @@ public class Bridge extends Room {
     public RoomCode getRoomCode() {
         return RoomCode.ROOM_1;
     }
+
 }

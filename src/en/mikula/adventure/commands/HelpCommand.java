@@ -17,18 +17,22 @@ public class HelpCommand implements Command {
         this.commandList = commandList;
     }
 
+    @Override
     public String signature() {
         return "help";
     }
 
+    @Override
     public String fullSignature() {
         return this.signature();
     }
 
+    @Override
     public String help() {
         return "Shows list of possible commands.";
     }
 
+    @Override
     public String run(String... args) {
         StringBuilder response = new StringBuilder("Available commands:");
 

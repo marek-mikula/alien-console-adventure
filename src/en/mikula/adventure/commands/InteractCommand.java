@@ -20,18 +20,22 @@ public class InteractCommand implements Command {
         this.game = game;
     }
 
+    @Override
     public String signature() {
         return "interact";
     }
 
+    @Override
     public String fullSignature() {
         return this.signature() + " {itemNumber}";
     }
 
+    @Override
     public String help() {
         return "Interacts with an item in the current room.";
     }
 
+    @Override
     public String run(String... args) {
         if (args.length == 0) {
             return "You haven't specified the item number.";

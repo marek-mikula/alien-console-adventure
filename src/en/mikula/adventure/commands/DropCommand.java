@@ -17,18 +17,22 @@ public class DropCommand implements Command {
         this.game = game;
     }
 
+    @Override
     public String signature() {
         return "drop";
     }
 
+    @Override
     public String fullSignature() {
         return this.signature() + " {itemNumber}";
     }
 
+    @Override
     public String help() {
         return "Drops an item. Use an item number as a first argument.";
     }
 
+    @Override
     public String run(String... args) {
         if (args.length == 0) {
             return "You haven't specified the item number.";

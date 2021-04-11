@@ -20,18 +20,22 @@ public class SearchCommand implements Command {
         this.game = game;
     }
 
+    @Override
     public String signature() {
         return "search";
     }
 
+    @Override
     public String fullSignature() {
         return this.signature();
     }
 
+    @Override
     public String help() {
         return "Searches the current room and shows list of available items.";
     }
 
+    @Override
     public String run(String... args) {
         HashSet<Item> items = game.getMap().getCurrentRoom().getItems();
 

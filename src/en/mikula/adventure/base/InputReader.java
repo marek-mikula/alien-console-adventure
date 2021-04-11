@@ -26,7 +26,7 @@ public class InputReader {
      * @return parsed command
      */
     public String readCommand() {
-        return commandParser.parseCommand(this.readLine());
+        return commandParser.parseCommand(readLine());
     }
 
     /**

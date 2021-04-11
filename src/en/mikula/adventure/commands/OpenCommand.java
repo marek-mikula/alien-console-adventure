@@ -20,18 +20,22 @@ public class OpenCommand implements Command {
         this.game = game;
     }
 
+    @Override
     public String signature() {
         return "open";
     }
 
+    @Override
     public String fullSignature() {
         return this.signature() + " {roomNumber} {itemNumber}";
     }
 
+    @Override
     public String help() {
         return "Opens the connection between rooms with an item from the inventory.";
     }
 
+    @Override
     public String run(String... args) {
         if (args.length < 2) {
             return "You haven't specified an item code or a room code.";

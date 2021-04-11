@@ -26,12 +26,16 @@ public class Game {
         inventory = new Inventory();
     }
 
+    /**
+     * Main method which handles the main
+     * while loop
+     */
     public void start() {
         GameText.startingText();
 
         while (!hasEnded) {
             try {
-                System.out.println(this.inputReader.readCommand());
+                System.out.println(inputReader.readCommand());
             } catch (IllegalArgumentException exception) {
                 System.out.println(exception.getMessage());
             }
@@ -40,14 +44,24 @@ public class Game {
         GameText.endingText();
     }
 
+    /**
+     * Sets the state if game ended
+     * @param hasEnded state
+     */
     public void setHasEnded(boolean hasEnded) {
         this.hasEnded = hasEnded;
     }
 
+    /**
+     * @return map
+     */
     public Map getMap() {
         return map;
     }
 
+    /**
+     * @return inventory
+     */
     public Inventory getInventory() {
         return inventory;
     }

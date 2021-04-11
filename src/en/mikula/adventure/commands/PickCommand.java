@@ -18,6 +18,7 @@ public class PickCommand implements Command {
         this.game = game;
     }
 
+    @Override
     public String signature() {
         return "pick";
     }
@@ -27,10 +28,12 @@ public class PickCommand implements Command {
         return this.signature() + " {itemNumber}";
     }
 
+    @Override
     public String help() {
         return "Picks an item in the current room.";
     }
 
+    @Override
     public String run(String... args) {
         if (args.length == 0) {
             return "You haven't specified the item number.";

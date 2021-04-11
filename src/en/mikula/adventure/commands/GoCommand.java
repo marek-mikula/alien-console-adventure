@@ -19,18 +19,22 @@ public class GoCommand implements Command {
         this.game = game;
     }
 
+    @Override
     public String signature() {
         return "go";
     }
 
+    @Override
     public String fullSignature() {
         return this.signature() + " {roomNumber|'back'}";
     }
 
+    @Override
     public String help() {
         return "Moves Ellen to a different room. Use room number or 'back' keyword!";
     }
 
+    @Override
     public String run(String... args) {
         if (args.length == 0) {
             return "You haven't specified the room number.";

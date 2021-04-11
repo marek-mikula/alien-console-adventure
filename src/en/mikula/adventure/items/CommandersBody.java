@@ -26,6 +26,7 @@ public class CommandersBody extends Item implements Interactive {
         return ItemCode.ITEM_2;
     }
 
+    @Override
     public String interact() {
         if (bodySearched) {
             return "You already searched the body.";

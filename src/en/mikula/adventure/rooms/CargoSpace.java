@@ -10,16 +10,6 @@ public class CargoSpace extends Room {
 
     private boolean isAlienHere = true;
 
-    @Override
-    public String getName() {
-        return "Cargo space";
-    }
-
-    @Override
-    public RoomCode getRoomCode() {
-        return RoomCode.ROOM_4;
-    }
-
     public void setIsRampOpened(boolean isRampOpened) {
         this.isRampOpened = isRampOpened;
     }
@@ -35,4 +25,15 @@ public class CargoSpace extends Room {
     public boolean isAlienHere() {
         return isAlienHere;
     }
+
+    @Override
+    public String getName() {
+        return "Cargo space";
+    }
+
+    @Override
+    public RoomCode getRoomCode() {
+        return RoomCode.ROOM_4;
+    }
+
 }

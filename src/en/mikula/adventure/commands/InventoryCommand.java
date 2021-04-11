@@ -19,18 +19,22 @@ public class InventoryCommand implements Command {
         this.game = game;
     }
 
+    @Override
     public String signature() {
         return "inventory";
     }
 
+    @Override
     public String fullSignature() {
         return this.signature();
     }
 
+    @Override
     public String help() {
         return "Lists all items in the inventory.";
     }
 
+    @Override
     public String run(String... args) {
         Set<Item> items = game.getInventory().getItems();
 

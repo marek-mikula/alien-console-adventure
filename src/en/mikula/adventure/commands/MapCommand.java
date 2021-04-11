@@ -19,18 +19,22 @@ public class MapCommand implements Command {
         this.game = game;
     }
 
+    @Override
     public String signature() {
         return "map";
     }
 
+    @Override
     public String fullSignature() {
         return this.signature();
     }
 
+    @Override
     public String help() {
         return "Shows the map of the game, current room and possible exits.";
     }
 
+    @Override
     public String run(String... args) {
         String[] numbers = new String[RoomCode.values().length];
 
