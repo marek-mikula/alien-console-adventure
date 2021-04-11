@@ -18,12 +18,13 @@ public class CargoSpacePlatformOpenedGuard implements RoomGuard {
 
     @Override
     public boolean passed() {
+        // Is the ramp still opened?
         return !(((CargoSpace) game.getMap().getRoom(RoomCode.ROOM_4)).isRampOpened());
     }
 
     @Override
     public String errorMessage() {
-        return "You can't enter the cargo space if the platform is opened! First close the platform!";
+        return "You can't enter the cargo space if the platform is opened! The compression would kill you! First close the platform!";
     }
 
 }

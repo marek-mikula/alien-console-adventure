@@ -17,10 +17,19 @@ import java.util.Objects;
  */
 public abstract class Room {
 
+    /**
+     * Connections to other rooms
+     */
     private final HashSet<RoomConnection> connections = new HashSet<>();
 
+    /**
+     * Items in the room
+     */
     private final HashSet<Item> items = new HashSet<>();
 
+    /**
+     * Room guards, List is used to maintain the order
+     */
     private final List<RoomGuard> guards = new ArrayList<>();
 
     /**
@@ -58,14 +67,31 @@ public abstract class Room {
         return null;
     }
 
+    /**
+     * Adds an item to the room
+     *
+     * @param item to be added
+     * @return boolean if successful
+     */
     public boolean addItem(Item item) {
         return items.add(item);
     }
 
+    /**
+     * Gets all items in the room
+     *
+     * @return set of room items
+     */
     public HashSet<Item> getItems() {
         return items;
     }
 
+    /**
+     * Removes an item from the room
+     *
+     * @param item to be removed
+     * @return boolean if successful
+     */
     public boolean removeItem(Item item) {
         return items.remove(item);
     }
@@ -87,10 +113,19 @@ public abstract class Room {
         return null;
     }
 
+    /**
+     * Adds guard to the room
+     *
+     * @param guard to be added
+     * @return boolean if successful
+     */
     public boolean addGuard(RoomGuard guard) {
         return guards.add(guard);
     }
 
+    /**
+     * @return all room guards
+     */
     public List<RoomGuard> getGuards() {
         return guards;
     }

@@ -1,6 +1,10 @@
 package en.mikula.adventure.items;
 
 /**
+ * Item code enum used to alias the items
+ * with a code so the user does not have to
+ * input the whole item names
+ *
  * @author Marek Mikula
  * @version 4/9/2021
  */
@@ -15,6 +19,9 @@ public enum ItemCode {
     ITEM_7(7), // Cargo space card
     ITEM_8(8); // Cargo space terminal
 
+    /**
+     * The number of the item
+     */
     private final int number;
 
     private ItemCode(int number) {

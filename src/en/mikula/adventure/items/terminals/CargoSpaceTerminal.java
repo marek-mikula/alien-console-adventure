@@ -5,17 +5,14 @@ import en.mikula.adventure.items.Diary;
 import en.mikula.adventure.items.ItemCode;
 import en.mikula.adventure.rooms.RoomCode;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Marek Mikula
  * @version 4/9/2021
  */
 public class CargoSpaceTerminal extends Terminal {
-
-    private final int OPTION_0 = 0;
-    private final int OPTION_1 = 1;
 
     public CargoSpaceTerminal(Game game) {
         super(game);
@@ -32,11 +29,11 @@ public class CargoSpaceTerminal extends Terminal {
     }
 
     @Override
-    protected Map<Integer, String> getOptions() {
-        Map<Integer, String> options = new HashMap<>();
+    protected List<String> getOptions() {
+        List<String> options = new ArrayList<>();
 
-        options.put(OPTION_0, "Enter code to storage room");
-        options.put(OPTION_1, "Close terminal");
+        options.add("Enter code to storage room");
+        options.add("Close terminal");
 
         return options;
     }
@@ -44,7 +41,7 @@ public class CargoSpaceTerminal extends Terminal {
     @Override
     protected void handleInteraction(int optionCode) {
         switch (optionCode) {
-            case OPTION_0:
+            case 0: // code input
                 if (this.readLine().equals(Diary.STORAGE_CODE)) {
                     System.out.println("Password was correct! The door to storage room has opened!");
                     (game.getMap().getRoom(RoomCode.ROOM_4).getNext(RoomCode.ROOM_5.getNumber())).setIsLocked(false);
@@ -52,7 +49,7 @@ public class CargoSpaceTerminal extends Terminal {
                     System.out.println("The password is incorrect.");
                 }
                 break;
-            case OPTION_1:
+            case 1: // close console
                 active = false;
                 break;
             default:

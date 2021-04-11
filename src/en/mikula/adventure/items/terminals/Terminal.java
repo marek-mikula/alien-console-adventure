@@ -5,12 +5,13 @@ import en.mikula.adventure.items.Interactive;
 import en.mikula.adventure.items.Item;
 import en.mikula.adventure.text.AsciArt;
 
-import java.util.Map;
+import java.util.List;
 import java.util.Scanner;
 
 /**
  * Abstract class for all terminals so they
- * all share common functionality
+ * all share common functionality which is
+ * showing options, reading user input and so on
  *
  * @author Marek Mikula
  * @version 4/9/2021
@@ -22,7 +23,7 @@ public abstract class Terminal extends Item implements Interactive {
     protected final Game game;
 
     /**
-     * Specifies if the terminal is still being used
+     * Specifies if the terminal is being used
      */
     protected boolean active = false;
 
@@ -34,9 +35,12 @@ public abstract class Terminal extends Item implements Interactive {
     @Override
     public String interact() {
         active = true;
+
+        // Show terminal starting screen
         this.startTerminal();
 
         while (active) {
+            // List all options to player before every input
             this.listOptions();
 
             String line = this.readLine();
@@ -55,9 +59,13 @@ public abstract class Terminal extends Item implements Interactive {
             }
         }
 
-        return this.closeTerminal();
+        // Return closing text
+        return "You closed the terminal.";
     }
 
+    /**
+     * Prints the invalid options message
+     */
     protected void undefinedOptionSelected() {
         System.out.println("There is no such option.");
     }
@@ -74,16 +82,12 @@ public abstract class Terminal extends Item implements Interactive {
      */
     private void listOptions() {
         System.out.println("What do you wanna do?");
-        for (Map.Entry<Integer, String> entry : this.getOptions().entrySet()) {
-            Integer optionNumber = entry.getKey();
-            String optionLabel = entry.getValue();
 
-            System.out.println("[" + optionNumber + "] " + optionLabel);
+        List<String> options = this.getOptions();
+
+        for (int i = 0; i < options.size(); i++) {
+            System.out.println("[" + i + "] " + options.get(i));
         }
-    }
-
-    private String closeTerminal() {
-        return "You closed the terminal.";
     }
 
     /**
@@ -102,7 +106,7 @@ public abstract class Terminal extends Item implements Interactive {
      *
      * @return array of terminal options
      */
-    protected abstract Map<Integer, String> getOptions();
+    protected abstract List<String> getOptions();
 
     /**
      * Handles the specific terminal option

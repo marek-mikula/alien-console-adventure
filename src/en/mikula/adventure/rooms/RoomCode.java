@@ -1,7 +1,9 @@
 package en.mikula.adventure.rooms;
 
 /**
- * Room codes enum
+ * Room code enum used to alias the rooms
+ * with a code so the user does not have to
+ * input the whole room names
  *
  * @author Marek Mikula
  * @version 4/9/2021

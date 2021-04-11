@@ -5,7 +5,9 @@ import en.mikula.adventure.items.ItemCode;
 import en.mikula.adventure.rooms.CargoSpace;
 import en.mikula.adventure.rooms.RoomCode;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -13,10 +15,6 @@ import java.util.Map;
  * @version 4/9/2021
  */
 public class CargoSpaceControlTerminal extends Terminal {
-
-    private final int OPTION_0 = 0;
-    private final int OPTION_1 = 1;
-    private final int OPTION_2 = 2;
 
     public CargoSpaceControlTerminal(Game game) {
         super(game);
@@ -33,18 +31,18 @@ public class CargoSpaceControlTerminal extends Terminal {
     }
 
     @Override
-    protected Map<Integer, String> getOptions() {
-        Map<Integer, String> options = new HashMap<>();
+    protected List<String> getOptions() {
+        List<String> options = new ArrayList<>();
 
         CargoSpace cargoSpace = (CargoSpace) game.getMap().getRoom(RoomCode.ROOM_4);
 
         if (cargoSpace.isRampOpened()) {
-            options.put(OPTION_1, "Close cargo platform");
+            options.add("Close cargo platform");
         } else {
-            options.put(OPTION_0, "Open cargo platform");
+            options.add("Open cargo platform");
         }
 
-        options.put(OPTION_2, "Close terminal");
+        options.add("Close terminal");
 
         return options;
     }
@@ -52,22 +50,24 @@ public class CargoSpaceControlTerminal extends Terminal {
     @Override
     protected void handleInteraction(int optionCode) {
         switch (optionCode) {
-            case OPTION_0:
+            case 0: // open/close cargo space ramp
                 CargoSpace cargoSpace = (CargoSpace) game.getMap().getRoom(RoomCode.ROOM_4);
 
-                cargoSpace.setIsRampOpened(true);
-                System.out.println("The ramp of the cargo space has been opened!");
+                if (cargoSpace.isRampOpened()) {
+                    cargoSpace.setIsRampOpened(false);
+                    System.out.println("The ramp in the cargo space room has been closed!");
+                } else {
+                    cargoSpace.setIsRampOpened(true);
+                    System.out.println("The ramp in the cargo space room has been opened!");
 
-                if (cargoSpace.isAlienHere()) {
-                    cargoSpace.setIsAlienHere(false);
-                    System.out.println("The monsters in the cargo space should be now gone!");
+                    // Check if aliens are still there, if so, remove them!
+                    if (cargoSpace.isAlienHere()) {
+                        cargoSpace.setIsAlienHere(false);
+                        System.out.println("The monsters in the cargo space should be now gone!");
+                    }
                 }
                 break;
-            case OPTION_1:
-                ((CargoSpace) game.getMap().getRoom(RoomCode.ROOM_4)).setIsRampOpened(false);
-                System.out.println("The ramp of the cargo space has been closed!");
-                break;
-            case OPTION_2:
+            case 1: // close terminal
                 active = false;
                 break;
             default:

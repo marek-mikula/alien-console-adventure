@@ -3,17 +3,14 @@ package en.mikula.adventure.items.terminals;
 import en.mikula.adventure.base.Game;
 import en.mikula.adventure.items.ItemCode;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Marek Mikula
  * @version 4/9/2021
  */
 public class BridgeTerminal extends Terminal {
-
-    private final int OPTION_0 = 0;
-    private final int OPTION_1 = 1;
 
     public BridgeTerminal(Game game) {
         super(game);
@@ -30,11 +27,11 @@ public class BridgeTerminal extends Terminal {
     }
 
     @Override
-    protected Map<Integer, String> getOptions() {
-        Map<Integer, String> options = new HashMap<>();
+    protected List<String> getOptions() {
+        List<String> options = new ArrayList<>();
 
-        options.put(OPTION_0, "Show status of escape modules");
-        options.put(OPTION_1, "Close terminal");
+        options.add("Show status of escape modules"); // option 0
+        options.add("Close terminal"); // option 1
 
         return options;
     }
@@ -42,10 +39,11 @@ public class BridgeTerminal extends Terminal {
     @Override
     protected void handleInteraction(int optionCode) {
         switch (optionCode) {
-            case OPTION_0:
-                System.out.println("Number of escape modules used: 36\n" + "Number of escape modules left: 1");
+            case 0: // status of escape modules
+                System.out.println("Number of escape modules used: 36");
+                System.out.println("Number of escape modules left: 1");
                 break;
-            case OPTION_1:
+            case 1: // close terminal
                 active = false;
                 break;
             default:

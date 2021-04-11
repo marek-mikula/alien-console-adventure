@@ -18,6 +18,7 @@ public class CargoSpaceAlienGuard implements RoomGuard {
 
     @Override
     public boolean passed() {
+        // Are there still aliens in the cargo space?
         return !(((CargoSpace) game.getMap().getRoom(RoomCode.ROOM_4)).isAlienHere());
     }
 
