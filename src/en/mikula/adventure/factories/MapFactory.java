@@ -61,15 +61,15 @@ public class MapFactory {
         cabin.addConnection(new RoomConnection(bridge));
 
         bridge.addConnection(new RoomConnection(cabin));
-        bridge.addConnection(new RoomConnection(escapeModuleSector).setIsBlocked(true));
         bridge.addConnection(new RoomConnection(cafeteria));
         bridge.addConnection(new RoomConnection(cargoSpace).setIsLocked(true));
 
         escapeModuleSector.addConnection(new RoomConnection(ventilation));
-        escapeModuleSector.addConnection(new RoomConnection(bridge).setIsBlocked(true));
+        escapeModuleSector.addConnection(new RoomConnection(cafeteria).setIsBlocked(true));
 
         cafeteria.addConnection(new RoomConnection(bridge));
         cafeteria.addConnection(new RoomConnection(cargoSpaceControl));
+        cafeteria.addConnection(new RoomConnection(escapeModuleSector).setIsBlocked(true));
 
         cargoSpaceControl.addConnection(new RoomConnection(cafeteria));
 
