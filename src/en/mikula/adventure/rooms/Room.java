@@ -43,13 +43,6 @@ public abstract class Room {
     }
 
     /**
-     * @return the set of all connections
-     */
-    public HashSet<RoomConnection> getConnections() {
-        return connections;
-    }
-
-    /**
      * Gets the next connection if any
      *
      * @param roomCode the room code which should correspond
