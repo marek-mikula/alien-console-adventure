@@ -1,6 +1,6 @@
 package en.mikula.adventure.base.inputs;
 
-import en.mikula.adventure.exceptions.EndOfTheFileException;
+import en.mikula.adventure.exceptions.EndOfFileException;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -8,6 +8,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
+ * Reads input from file
+ *
  * @author Marek Mikula
  * @version 4/20/2021
  */
@@ -20,7 +22,7 @@ public class FileInput implements Input {
     }
 
     @Override
-    public String readLine() throws EndOfTheFileException {
+    public String readLine() throws EndOfFileException {
         String line;
 
         try {
@@ -35,7 +37,7 @@ public class FileInput implements Input {
         }
 
         if (line == null) {
-            throw new EndOfTheFileException("The programme hit the end of the command file!");
+            throw new EndOfFileException("The programme hit the end of the command file!");
         }
 
         return line;

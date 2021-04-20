@@ -3,6 +3,8 @@ package en.mikula.adventure.base.inputs;
 import java.util.Scanner;
 
 /**
+ * Reads input from user
+ *
  * @author Marek Mikula
  * @version 4/20/2021
  */
@@ -16,7 +18,6 @@ public class UserInput implements Input {
 
     @Override
     public String readLine() {
-        System.out.print("> ");
         return scanner.nextLine();
     }
 }

@@ -1,6 +1,7 @@
 package en.mikula.adventure.commands;
 
 import en.mikula.adventure.base.Game;
+import en.mikula.adventure.exceptions.EndOfFileException;
 import en.mikula.adventure.items.Interactive;
 import en.mikula.adventure.items.Item;
 
@@ -36,7 +37,7 @@ public class InteractCommand implements Command {
     }
 
     @Override
-    public String run(String... args) {
+    public String run(String... args) throws EndOfFileException {
         if (args.length == 0) {
             return "You haven't specified the item number.";
         }

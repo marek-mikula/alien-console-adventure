@@ -1,7 +1,7 @@
 package en.mikula.adventure.base;
 
 import en.mikula.adventure.base.inputs.Input;
-import en.mikula.adventure.exceptions.EndOfTheFileException;
+import en.mikula.adventure.exceptions.EndOfFileException;
 import en.mikula.adventure.factories.MapFactory;
 import en.mikula.adventure.text.GameText;
 
@@ -40,7 +40,7 @@ public class Game {
         while (!hasEnded) {
             try {
                 System.out.println(commandReader.readCommand());
-            } catch (EndOfTheFileException exception) {
+            } catch (EndOfFileException exception) {
                 System.out.println(exception.getMessage());
                 // End the game if end of file and the game hasn't ended yet
                 hasEnded = true;
@@ -75,6 +75,11 @@ public class Game {
         return inventory;
     }
 
+    /**
+     * Allows other components to use input reader
+     *
+     * @return current input implementation
+     */
     public Input getInput() {
         return commandReader.getInput();
     }

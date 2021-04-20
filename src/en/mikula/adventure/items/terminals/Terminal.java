@@ -1,7 +1,7 @@
 package en.mikula.adventure.items.terminals;
 
 import en.mikula.adventure.base.Game;
-import en.mikula.adventure.base.inputs.Input;
+import en.mikula.adventure.exceptions.EndOfFileException;
 import en.mikula.adventure.items.Interactive;
 import en.mikula.adventure.items.Item;
 import en.mikula.adventure.text.AsciArt;
@@ -30,7 +30,7 @@ public abstract class Terminal extends Item implements Interactive {
     }
 
     @Override
-    public String interact() {
+    public String interact() throws EndOfFileException {
         active = true;
 
         // Show terminal starting screen
@@ -100,6 +100,6 @@ public abstract class Terminal extends Item implements Interactive {
      *
      * @param optionCode option code which user selected
      */
-    protected abstract void handleInteraction(int optionCode);
+    protected abstract void handleInteraction(int optionCode) throws EndOfFileException;
 
 }

@@ -1,6 +1,7 @@
 package en.mikula.adventure.items.terminals;
 
 import en.mikula.adventure.base.Game;
+import en.mikula.adventure.exceptions.EndOfFileException;
 import en.mikula.adventure.items.Diary;
 import en.mikula.adventure.items.ItemCode;
 import en.mikula.adventure.rooms.RoomCode;
@@ -39,7 +40,7 @@ public class CargoSpaceTerminal extends Terminal {
     }
 
     @Override
-    protected void handleInteraction(int optionCode) {
+    protected void handleInteraction(int optionCode) throws EndOfFileException {
         switch (optionCode) {
             case 0: // code input
                 String line = game.getInput().readLine();

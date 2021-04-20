@@ -1,5 +1,7 @@
 package en.mikula.adventure.items;
 
+import en.mikula.adventure.exceptions.EndOfFileException;
+
 /**
  * Common item interface which allows
  * player to interact with an item
@@ -16,6 +18,6 @@ public interface Interactive {
      *
      * @return string text to show to user
      */
-    public String interact();
+    public String interact() throws EndOfFileException;
 
 }
