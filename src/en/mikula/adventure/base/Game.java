@@ -1,7 +1,11 @@
 package en.mikula.adventure.base;
 
+import en.mikula.adventure.base.inputs.Input;
+import en.mikula.adventure.exceptions.EndOfTheFileException;
 import en.mikula.adventure.factories.MapFactory;
 import en.mikula.adventure.text.GameText;
+
+import java.io.FileNotFoundException;
 
 /**
  * Main game class which handles the main
@@ -12,7 +16,7 @@ import en.mikula.adventure.text.GameText;
  */
 public class Game {
 
-    private final InputReader inputReader;
+    private final CommandReader commandReader;
 
     private final Map map;
 
@@ -20,8 +24,8 @@ public class Game {
 
     private boolean hasEnded = false;
 
-    public Game() {
-        inputReader = new InputReader(this);
+    public Game(String[] args) throws FileNotFoundException {
+        commandReader = new CommandReader(this, args);
         map = MapFactory.buildMap(this);
         inventory = new Inventory();
     }
@@ -35,8 +39,12 @@ public class Game {
 
         while (!hasEnded) {
             try {
-                System.out.println(inputReader.readCommand());
-            } catch (IllegalArgumentException exception) {
+                System.out.println(commandReader.readCommand());
+            } catch (EndOfTheFileException exception) {
+                System.out.println(exception.getMessage());
+                // End the game if end of file and the game hasn't ended yet
+                hasEnded = true;
+            } catch (RuntimeException exception) {
                 System.out.println(exception.getMessage());
             }
         }
@@ -46,6 +54,7 @@ public class Game {
 
     /**
      * Sets the state if game ended
+     *
      * @param hasEnded state
      */
     public void setHasEnded(boolean hasEnded) {
@@ -64,6 +73,10 @@ public class Game {
      */
     public Inventory getInventory() {
         return inventory;
+    }
+
+    public Input getInput() {
+        return commandReader.getInput();
     }
 
 }

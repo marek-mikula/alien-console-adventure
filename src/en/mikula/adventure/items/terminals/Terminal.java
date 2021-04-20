@@ -1,12 +1,12 @@
 package en.mikula.adventure.items.terminals;
 
 import en.mikula.adventure.base.Game;
+import en.mikula.adventure.base.inputs.Input;
 import en.mikula.adventure.items.Interactive;
 import en.mikula.adventure.items.Item;
 import en.mikula.adventure.text.AsciArt;
 
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Abstract class for all terminals so they
@@ -18,8 +18,6 @@ import java.util.Scanner;
  */
 public abstract class Terminal extends Item implements Interactive {
 
-    private final Scanner scanner;
-
     protected final Game game;
 
     /**
@@ -29,7 +27,6 @@ public abstract class Terminal extends Item implements Interactive {
 
     public Terminal(Game game) {
         this.game = game;
-        this.scanner = new Scanner(System.in);
     }
 
     @Override
@@ -43,7 +40,7 @@ public abstract class Terminal extends Item implements Interactive {
             // List all options to player before every input
             this.listOptions();
 
-            String line = this.readLine();
+            String line = this.game.getInput().readLine();
 
             if (line.isEmpty()) {
                 System.out.println("You did not enter any option.");
@@ -88,16 +85,6 @@ public abstract class Terminal extends Item implements Interactive {
         for (int i = 0; i < options.size(); i++) {
             System.out.println("[" + i + "] " + options.get(i));
         }
-    }
-
-    /**
-     * Reads input from user using Scanner
-     *
-     * @return read string
-     */
-    protected String readLine() {
-        System.out.print("> ");
-        return scanner.nextLine();
     }
 
     /**

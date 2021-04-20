@@ -42,7 +42,8 @@ public class CargoSpaceTerminal extends Terminal {
     protected void handleInteraction(int optionCode) {
         switch (optionCode) {
             case 0: // code input
-                if (this.readLine().equals(Diary.STORAGE_CODE)) {
+                String line = game.getInput().readLine();
+                if (line != null && line.equals(Diary.STORAGE_CODE)) {
                     System.out.println("Password was correct! The door to storage room has opened!");
                     (game.getMap().getRoom(RoomCode.ROOM_4).getNext(RoomCode.ROOM_5.getNumber())).setIsLocked(false);
                 } else {

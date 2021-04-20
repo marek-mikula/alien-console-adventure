@@ -26,7 +26,11 @@ public class CommandParser {
      * @param line line that user entered
      * @return the result of the command
      */
-    public String parseCommand(String line) {
+    public String parseCommand(String line) throws RuntimeException {
+        if (line == null) {
+            throw new RuntimeException("There was an error while reading the line!");
+        }
+
         // User entered empty string
         if (line.isEmpty()) {
             throw new IllegalArgumentException("You did not enter any command!");
@@ -45,7 +49,6 @@ public class CommandParser {
 
         return commandList.getCommand(signature).run(
                 // Obtain only the subarray of arguments from the whole array
-                Arrays.copyOfRange(words, 1, words.length)
-        );
+                Arrays.copyOfRange(words, 1, words.length));
     }
 }
