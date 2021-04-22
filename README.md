@@ -1,2 +1,3 @@
-# alienc-console-adventure
-Small Java console Zorg-like adventure.
+# Alien console game
+
+This is my school work during second semester. The game is inspired by Zorg.
