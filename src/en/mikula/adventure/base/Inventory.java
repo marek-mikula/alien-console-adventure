@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Users inventory list
+ * User's inventory list
  *
  * @author Marek Mikula
  * @version 4/10/2021
