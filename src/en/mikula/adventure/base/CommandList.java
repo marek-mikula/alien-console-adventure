@@ -20,8 +20,8 @@ public class CommandList {
      *
      * @param command instance to be added to the list
      */
-    public void addCommand(Command command) {
-        commands.put(command.signature(), command);
+    public Command addCommand(Command command) {
+        return commands.put(command.signature(), command);
     }
 
     /**
