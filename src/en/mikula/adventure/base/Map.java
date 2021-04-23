@@ -12,6 +12,11 @@ import java.util.HashSet;
 public class Map {
 
     /**
+     * Default starting room constant
+     */
+    public static RoomCode STARTING_ROOM = RoomCode.ROOM_0;
+
+    /**
      * List of all rooms
      */
     private final HashSet<Room> rooms = new HashSet<>();
