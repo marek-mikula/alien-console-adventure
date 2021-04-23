@@ -12,7 +12,7 @@ public interface Key {
      * Method which opens the room
      *
      * @param roomCode of room which we are trying to open
-     * @return string which tells us if we were successfull
+     * @return string which tells us if we were successful
      * or not
      */
     public String open(RoomCode roomCode);

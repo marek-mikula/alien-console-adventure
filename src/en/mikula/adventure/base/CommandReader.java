@@ -29,6 +29,8 @@ public class CommandReader {
      * command parser.
      *
      * @return parsed command
+     * @throws EndOfFileException when we hit the end of the
+     *                            file while reading commands from file
      */
     public String readCommand() throws EndOfFileException {
         System.out.print("> "); // Print trailing character before command
