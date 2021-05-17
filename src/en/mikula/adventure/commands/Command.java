@@ -1,7 +1,5 @@
 package en.mikula.adventure.commands;
 
-import en.mikula.adventure.exceptions.EndOfFileException;
-
 /**
  * Base interface for all commands
  *
@@ -38,6 +36,6 @@ public interface Command {
      * @param args array of params which user entered
      * @return output of the command
      */
-    public String run(String... args) throws EndOfFileException;
+    public String run(String... args);
 
 }

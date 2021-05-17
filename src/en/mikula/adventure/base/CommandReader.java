@@ -1,11 +1,7 @@
 package en.mikula.adventure.base;
 
-import en.mikula.adventure.base.inputs.FileInput;
 import en.mikula.adventure.base.inputs.Input;
 import en.mikula.adventure.base.inputs.UserInput;
-import en.mikula.adventure.exceptions.EndOfFileException;
-
-import java.io.FileNotFoundException;
 
 /**
  * Reads command from given input
@@ -19,15 +15,9 @@ public class CommandReader {
 
     private final CommandParser commandParser;
 
-    public CommandReader(Game game, String[] args) throws FileNotFoundException {
+    public CommandReader(Game game) {
         commandParser = new CommandParser(game);
-
-        // Set file input implementation
-        if (args.length > 0) {
-            input = new FileInput(args[0]);
-        } else {
-            input = new UserInput();
-        }
+        input = new UserInput();
     }
 
     /**
@@ -35,10 +25,8 @@ public class CommandReader {
      * command parser.
      *
      * @return parsed command
-     * @throws EndOfFileException when we hit the end of the
-     *                            file while reading commands from file
      */
-    public String readCommand() throws EndOfFileException {
+    public String readCommand() {
         System.out.print("> "); // Print trailing character before command
         return commandParser.parseCommand(input.readLine());
     }

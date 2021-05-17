@@ -1,7 +1,6 @@
 package en.mikula.adventure.items.terminals.cargoSpace;
 
 import en.mikula.adventure.base.Game;
-import en.mikula.adventure.exceptions.EndOfFileException;
 import en.mikula.adventure.items.Diary;
 import en.mikula.adventure.items.terminals.TerminalOption;
 import en.mikula.adventure.rooms.RoomCode;
@@ -12,7 +11,7 @@ import en.mikula.adventure.rooms.RoomCode;
  */
 public class EnterCodeToStorageRoomOption implements TerminalOption {
 
-    private Game game;
+    private final Game game;
 
     public EnterCodeToStorageRoomOption(Game game) {
         this.game = game;
@@ -26,7 +25,7 @@ public class EnterCodeToStorageRoomOption implements TerminalOption {
         return "Enter password to storage room";
     }
 
-    public void handle() throws EndOfFileException {
+    public void handle() {
         System.out.print("The password: ");
 
         String line = game.getInput().readLine();

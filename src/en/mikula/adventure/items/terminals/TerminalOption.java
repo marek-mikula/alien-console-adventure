@@ -1,7 +1,5 @@
 package en.mikula.adventure.items.terminals;
 
-import en.mikula.adventure.exceptions.EndOfFileException;
-
 /**
  * Base interface for terminal options
  *
@@ -29,11 +27,8 @@ public interface TerminalOption {
     /**
      * Handles the operation when the option
      * is selected
-     *
-     * @throws EndOfFileException can be thrown
-     *                            if we read the commands from file
      */
-    public void handle() throws EndOfFileException;
+    public void handle();
 
     /**
      * Returns boolean if the option should be listed

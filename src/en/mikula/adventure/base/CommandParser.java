@@ -1,6 +1,5 @@
 package en.mikula.adventure.base;
 
-import en.mikula.adventure.exceptions.EndOfFileException;
 import en.mikula.adventure.factories.CommandListFactory;
 
 import java.util.Arrays;
@@ -27,7 +26,7 @@ public class CommandParser {
      * @param line line that user entered
      * @return the result of the command
      */
-    public String parseCommand(String line) throws RuntimeException, EndOfFileException {
+    public String parseCommand(String line) throws RuntimeException {
         if (line == null) {
             throw new RuntimeException("There was an error while reading the line!");
         }

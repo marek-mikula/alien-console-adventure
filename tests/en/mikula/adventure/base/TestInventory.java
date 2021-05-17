@@ -6,7 +6,6 @@ import en.mikula.adventure.items.Screwdriver;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,9 +22,9 @@ public class TestInventory {
     private Game game;
 
     @Before
-    public void setup() throws FileNotFoundException {
+    public void setup() {
         inventory = new Inventory();
-        game = new Game(new String[]{});
+        game = new Game();
     }
 
     @Test

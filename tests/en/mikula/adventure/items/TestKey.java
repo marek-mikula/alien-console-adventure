@@ -5,8 +5,6 @@ import en.mikula.adventure.rooms.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -19,8 +17,8 @@ public class TestKey {
     private Game game;
 
     @Before
-    public void setup() throws FileNotFoundException {
-        game = new Game(new String[]{});
+    public void setup() {
+        game = new Game();
     }
 
     @Test

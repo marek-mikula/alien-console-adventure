@@ -7,7 +7,6 @@ import en.mikula.adventure.commands.InteractCommand;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,9 +23,9 @@ public class TestCommandList {
     private Game game;
 
     @Before
-    public void setup() throws FileNotFoundException {
+    public void setup() {
         commandList = new CommandList();
-        game = new Game(new String[]{});
+        game = new Game();
     }
 
     @Test

@@ -10,7 +10,6 @@ import en.mikula.adventure.rooms.guards.RoomGuard;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -28,9 +27,9 @@ public class RoomTest {
     private Room defaultRoom;
 
     @Before
-    public void setup() throws FileNotFoundException {
+    public void setup() {
         defaultRoom = new Cabin();
-        game = new Game(new String[]{});
+        game = new Game();
     }
 
     @Test
