@@ -25,7 +25,7 @@ public class PickCommand implements Command {
 
     @Override
     public String fullSignature() {
-        return this.signature() + " {itemNumber}";
+        return signature() + " {itemNumber}";
     }
 
     @Override

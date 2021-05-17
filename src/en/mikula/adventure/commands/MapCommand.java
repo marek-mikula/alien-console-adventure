@@ -26,7 +26,7 @@ public class MapCommand implements Command {
 
     @Override
     public String fullSignature() {
-        return this.signature();
+        return signature();
     }
 
     @Override

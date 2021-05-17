@@ -13,7 +13,7 @@ public class UserInput implements Input {
     private final Scanner scanner;
 
     public UserInput() {
-        this.scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
     }
 
     @Override

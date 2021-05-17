@@ -26,7 +26,7 @@ public class GoCommand implements Command {
 
     @Override
     public String fullSignature() {
-        return this.signature() + " {roomNumber|'back'}";
+        return signature() + " {roomNumber|'back'}";
     }
 
     @Override

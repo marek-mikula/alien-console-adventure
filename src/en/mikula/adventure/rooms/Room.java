@@ -142,12 +142,12 @@ public abstract class Room {
             return false;
         }
         Room room = (Room) o;
-        return room.getRoomCode().equals(this.getRoomCode());
+        return room.getRoomCode().equals(getRoomCode());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.getRoomCode().getNumber());
+        return Objects.hash(getRoomCode().getNumber());
     }
 
 }

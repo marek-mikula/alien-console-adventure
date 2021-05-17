@@ -32,7 +32,7 @@ public class CommandersBody extends Item implements Interactive {
             return "You already searched the body.";
         }
 
-        this.bodySearched = true;
+        bodySearched = true;
 
         CargoSpaceCard cargoSpaceCard = new CargoSpaceCard(game);
 

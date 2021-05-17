@@ -27,7 +27,7 @@ public class SearchCommand implements Command {
 
     @Override
     public String fullSignature() {
-        return this.signature();
+        return signature();
     }
 
     @Override

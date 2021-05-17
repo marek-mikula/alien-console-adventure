@@ -34,12 +34,12 @@ public abstract class Item {
             return false;
         }
         Item room = (Item) o;
-        return room.getCode().equals(this.getCode());
+        return room.getCode().equals(getCode());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.getCode().getNumber());
+        return Objects.hash(getCode().getNumber());
     }
 
 }

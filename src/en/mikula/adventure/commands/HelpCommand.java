@@ -24,7 +24,7 @@ public class HelpCommand implements Command {
 
     @Override
     public String fullSignature() {
-        return this.signature();
+        return signature();
     }
 
     @Override

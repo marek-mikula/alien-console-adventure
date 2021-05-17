@@ -40,13 +40,13 @@ public abstract class Terminal extends Item implements Interactive {
         active = true;
 
         // Show terminal starting screen
-        this.startTerminal();
+        startTerminal();
 
         while (active) {
             // List all options to player before every input
-            this.listOptions();
+            listOptions();
 
-            String line = this.game.getInput().readLine();
+            String line = game.getInput().readLine();
 
             if (line.isEmpty()) {
                 System.out.println("You did not enter any option.");

@@ -27,7 +27,7 @@ public class OpenCommand implements Command {
 
     @Override
     public String fullSignature() {
-        return this.signature() + " {roomNumber} {itemNumber}";
+        return signature() + " {roomNumber} {itemNumber}";
     }
 
     @Override
