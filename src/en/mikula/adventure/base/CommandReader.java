@@ -21,7 +21,13 @@ public class CommandReader {
 
     public CommandReader(Game game, String[] args) throws FileNotFoundException {
         commandParser = new CommandParser(game);
-        input = args.length > 0 ? new FileInput(args[0]) : new UserInput();
+
+        // Set file input implementation
+        if (args.length > 0) {
+            input = new FileInput(args[0]);
+        } else {
+            input = new UserInput();
+        }
     }
 
     /**

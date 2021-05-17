@@ -25,7 +25,7 @@ public class FileInput implements Input {
     public String readLine() throws EndOfFileException {
         String line;
 
-        try {
+        try (reader) {
             line = reader.readLine();
 
             // Close the reader if empty
