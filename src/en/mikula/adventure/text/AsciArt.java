@@ -37,9 +37,9 @@ public class AsciArt {
         return String.join("\n", new String[] {
                 "┌-------------------------------------------------------------┐",
                 "| Damn, I kinda miss my family  | Yo I should finally get the |",
-                "| tho._________________________ | code from the storage room  |",
-                "| _____________________________ | to my head. I should write  |",
-                "| 5.1. 2159 - Man tomorrow I am | it somewhere.______________ |",
+                "| tho._________________________ | password for the storage___ |",
+                "| _____________________________ | room to my head. I should__ |",
+                "| 5.1. 2159 - Man tomorrow I am | write it somewhere.________ |",
                 "| getting that Cyberpunk, I am  | ___________________________ |",
                 "| kinda excited________________ | I better write it just here |",
                 "| _____________________________ | ___________%s____________ |",

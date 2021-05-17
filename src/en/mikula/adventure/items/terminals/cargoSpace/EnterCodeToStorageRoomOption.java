@@ -23,10 +23,12 @@ public class EnterCodeToStorageRoomOption implements TerminalOption {
     }
 
     public String getText() {
-        return "Enter code to storage room";
+        return "Enter password to storage room";
     }
 
     public void handle() throws EndOfFileException {
+        System.out.print("The password: ");
+
         String line = game.getInput().readLine();
         if (line != null && line.equals(Diary.STORAGE_CODE)) {
             System.out.println("Password was correct! The door to storage room has opened!");
