@@ -21,12 +21,12 @@ public abstract class Terminal extends Item implements Interactive {
 
     private final Map<Integer, TerminalOption> optionMap = new HashMap<>();
 
-    protected final Game game;
+    private final Game game;
 
     /**
      * Specifies if the terminal is being used
      */
-    protected boolean active = false;
+    private boolean active = false;
 
     public Terminal(Game game) {
         this.game = game;
@@ -85,6 +85,14 @@ public abstract class Terminal extends Item implements Interactive {
     }
 
     /**
+     * Sets the terminal active state to false,
+     * therefore if turns off the terminal
+     */
+    public void turnOffTerminal() {
+        active = false;
+    }
+
+    /**
      * Shows the start screen of the terminal
      */
     private void startTerminal() {
@@ -103,14 +111,6 @@ public abstract class Terminal extends Item implements Interactive {
             }
             System.out.println("[" + value.getNumber() + "] " + value.getText());
         });
-    }
-
-    /**
-     * Sets the terminal active state to false,
-     * therefore if turns off the terminal
-     */
-    protected void turnOffTerminal() {
-        active = false;
     }
 
 }
