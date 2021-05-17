@@ -3,10 +3,16 @@ package en.mikula.adventure.factories;
 import en.mikula.adventure.base.Game;
 import en.mikula.adventure.base.Map;
 import en.mikula.adventure.items.*;
-import en.mikula.adventure.items.terminals.BridgeTerminal;
-import en.mikula.adventure.items.terminals.CargoSpaceControlTerminal;
-import en.mikula.adventure.items.terminals.CargoSpaceTerminal;
-import en.mikula.adventure.items.terminals.EscapeModuleSectorTerminal;
+import en.mikula.adventure.items.terminals.bridge.BridgeTerminal;
+import en.mikula.adventure.items.terminals.bridge.ShowLastDiaryEntryOption;
+import en.mikula.adventure.items.terminals.bridge.ShowStatusOfEscapeModulesOption;
+import en.mikula.adventure.items.terminals.cargoSpace.EnterCodeToStorageRoomOption;
+import en.mikula.adventure.items.terminals.cargoSpaceControl.CargoSpaceControlTerminal;
+import en.mikula.adventure.items.terminals.cargoSpace.CargoSpaceTerminal;
+import en.mikula.adventure.items.terminals.cargoSpaceControl.CloseCargoPlatformOption;
+import en.mikula.adventure.items.terminals.cargoSpaceControl.OpenCargoPlatformOption;
+import en.mikula.adventure.items.terminals.escapeModuleSector.EscapeModuleSectorTerminal;
+import en.mikula.adventure.items.terminals.escapeModuleSector.GetEscapeModuleReadyOption;
 import en.mikula.adventure.rooms.*;
 import en.mikula.adventure.rooms.guards.CargoSpaceAlienGuard;
 import en.mikula.adventure.rooms.guards.CargoSpacePlatformOpenedGuard;
@@ -22,7 +28,7 @@ public class MapFactory {
     /**
      * Builds the rooms filled with guards, items
      * and their connections
-     *
+     * <p>
      * Sets the default room to cabin
      *
      * @param game game instance
@@ -47,13 +53,28 @@ public class MapFactory {
 
         // Add items to the rooms
 
+        BridgeTerminal bridgeTerminal = new BridgeTerminal(game);
+        CargoSpaceControlTerminal cargoSpaceControlTerminal = new CargoSpaceControlTerminal(game);
+        CargoSpaceTerminal cargoSpaceTerminal = new CargoSpaceTerminal(game);
+        EscapeModuleSectorTerminal escapeModuleSectorTerminal = new EscapeModuleSectorTerminal(game);
+
+        bridgeTerminal.addOption(new ShowLastDiaryEntryOption());
+        bridgeTerminal.addOption(new ShowStatusOfEscapeModulesOption());
+
+        cargoSpaceTerminal.addOption(new EnterCodeToStorageRoomOption(game));
+
+        cargoSpaceControlTerminal.addOption(new CloseCargoPlatformOption(game));
+        cargoSpaceControlTerminal.addOption(new OpenCargoPlatformOption(game));
+
+        escapeModuleSectorTerminal.addOption(new GetEscapeModuleReadyOption(game));
+
         cabin.addItem(new Diary());
         cafeteria.addItem(new CommandersBody(game));
-        bridge.addItem(new BridgeTerminal(game));
-        cargoSpaceControl.addItem(new CargoSpaceControlTerminal(game));
+        bridge.addItem(bridgeTerminal);
+        cargoSpaceControl.addItem(cargoSpaceControlTerminal);
         cargoSpace.addItem(new Screwdriver(game));
-        cargoSpace.addItem(new CargoSpaceTerminal(game));
-        escapeModuleSector.addItem(new EscapeModuleSectorTerminal(game));
+        cargoSpace.addItem(cargoSpaceTerminal);
+        escapeModuleSector.addItem(escapeModuleSectorTerminal);
         escapeModuleSector.addItem(new EscapeModule(game));
 
         // Create connections between rooms

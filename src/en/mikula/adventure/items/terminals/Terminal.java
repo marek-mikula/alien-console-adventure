@@ -6,7 +6,8 @@ import en.mikula.adventure.items.Interactive;
 import en.mikula.adventure.items.Item;
 import en.mikula.adventure.text.AsciArt;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Abstract class for all terminals so they
@@ -18,6 +19,8 @@ import java.util.List;
  */
 public abstract class Terminal extends Item implements Interactive {
 
+    private final Map<Integer, TerminalOption> optionMap = new HashMap<>();
+
     protected final Game game;
 
     /**
@@ -27,6 +30,10 @@ public abstract class Terminal extends Item implements Interactive {
 
     public Terminal(Game game) {
         this.game = game;
+
+        // Put close option by default into map
+        TerminalOption defaultCloseOption = new CloseTerminalOption(this);
+        optionMap.put(defaultCloseOption.getNumber(), defaultCloseOption);
     }
 
     @Override
@@ -50,7 +57,15 @@ public abstract class Terminal extends Item implements Interactive {
             String[] options = line.split("[ \t]+");
 
             try {
-                this.handleInteraction(Integer.parseInt(options[0]));
+                TerminalOption option = optionMap.get(Integer.parseInt(options[0]));
+
+                // Don't let user select non existing option
+                if (option == null || !option.shouldList()) {
+                    System.out.println("There is no such option.");
+                    continue;
+                }
+
+                option.handle();
             } catch (NumberFormatException exception) {
                 System.out.println("You entered an invalid option. Try again.");
             }
@@ -61,10 +76,12 @@ public abstract class Terminal extends Item implements Interactive {
     }
 
     /**
-     * Prints the invalid options message
+     * Adds one option to the map
+     *
+     * @param option to be added
      */
-    protected void undefinedOptionSelected() {
-        System.out.println("There is no such option.");
+    public void addOption(TerminalOption option) {
+        optionMap.put(option.getNumber(), option);
     }
 
     /**
@@ -80,26 +97,20 @@ public abstract class Terminal extends Item implements Interactive {
     private void listOptions() {
         System.out.println("What do you wanna do?");
 
-        List<String> options = this.getOptions();
-
-        for (int i = 0; i < options.size(); i++) {
-            System.out.println("[" + i + "] " + options.get(i));
-        }
+        optionMap.forEach((key, value) -> {
+            if (!value.shouldList()) {
+                return;
+            }
+            System.out.println("[" + value.getNumber() + "] " + value.getText());
+        });
     }
 
     /**
-     * Gets the options for terminal where index is option
-     * number and value is the label
-     *
-     * @return array of terminal options
+     * Sets the terminal active state to false,
+     * therefore if turns off the terminal
      */
-    protected abstract List<String> getOptions();
-
-    /**
-     * Handles the specific terminal option
-     *
-     * @param optionCode option code which user selected
-     */
-    protected abstract void handleInteraction(int optionCode) throws EndOfFileException;
+    protected void turnOffTerminal() {
+        active = false;
+    }
 
 }
