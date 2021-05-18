@@ -3,7 +3,9 @@ package en.mikula.adventure.base;
 import en.mikula.adventure.rooms.Room;
 import en.mikula.adventure.rooms.RoomCode;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 /**
  * @author Marek Mikula
@@ -32,6 +34,11 @@ public class Map {
     private Room previousRoom;
 
     /**
+     * Array of previous rooms
+     */
+    private LinkedList<Room> previousRooms = new LinkedList<>();
+
+    /**
      * Gets the current room
      *
      * @return current room
@@ -46,7 +53,7 @@ public class Map {
      * @return previous room
      */
     public Room getPreviousRoom() {
-        return previousRoom;
+        return previousRooms.removeLast();
     }
 
     /**
@@ -64,8 +71,11 @@ public class Map {
      *
      * @param room new room
      */
-    public void changeCurrentRoom(Room room) {
-        previousRoom = currentRoom;
+    public void changeCurrentRoom(Room room, boolean shouldAddToPrevious) {
+        if (shouldAddToPrevious) {
+            previousRooms.add(currentRoom);
+        }
+
         currentRoom = room;
     }
 

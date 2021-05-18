@@ -42,6 +42,8 @@ public class GoCommand implements Command {
 
         RoomConnection next;
 
+        boolean shouldAddToPrevious = true;
+
         // Try to parse the int in first argument and pass it to the method
         try {
             next = game.getMap().getCurrentRoom().getNext(Integer.parseInt(args[0]));
@@ -57,6 +59,8 @@ public class GoCommand implements Command {
                 next = game.getMap().getCurrentRoom().getNext(
                         previousRoom.getRoomCode().getNumber()
                 );
+
+                shouldAddToPrevious = false;
             } else {
                 return "You have to enter the number of a room as a first argument.";
             }
@@ -86,7 +90,7 @@ public class GoCommand implements Command {
         }
 
         // Change current room to the next room
-        game.getMap().changeCurrentRoom(nextRoom);
+        game.getMap().changeCurrentRoom(nextRoom, shouldAddToPrevious);
 
         return "You entered the room [" + nextRoom.getName() + "].";
     }

@@ -115,7 +115,7 @@ public class MapFactory {
         map.addRoom(ventilation);
 
         // Set default room
-        map.changeCurrentRoom(map.getRoom(Map.STARTING_ROOM));
+        map.changeCurrentRoom(map.getRoom(Map.STARTING_ROOM), true);
 
         return map;
     }

@@ -24,11 +24,11 @@ public class TestMap {
         Room bridge = new Bridge();
         Room cabin = new Cabin();
 
-        map.changeCurrentRoom(bridge);
+        map.changeCurrentRoom(bridge, true);
 
         assertEquals(bridge, map.getCurrentRoom());
 
-        map.changeCurrentRoom(cabin);
+        map.changeCurrentRoom(cabin, true);
 
         assertNotEquals(bridge, map.getCurrentRoom());
         assertEquals(cabin, map.getCurrentRoom());
@@ -39,15 +39,15 @@ public class TestMap {
         Room bridge = new Bridge();
         Room cabin = new Cabin();
 
-        map.changeCurrentRoom(bridge);
+        map.changeCurrentRoom(bridge, true);
 
         assertNull(map.getPreviousRoom());
 
-        map.changeCurrentRoom(cabin);
+        map.changeCurrentRoom(cabin, true);
 
         assertEquals(bridge, map.getPreviousRoom());
 
-        map.changeCurrentRoom(bridge);
+        map.changeCurrentRoom(bridge, true);
 
         assertEquals(cabin, map.getPreviousRoom());
     }
@@ -67,11 +67,11 @@ public class TestMap {
         Room bridge = new Bridge();
         Room cabin = new Cabin();
 
-        map.changeCurrentRoom(bridge);
+        map.changeCurrentRoom(bridge, true);
 
         assertEquals(bridge, map.getCurrentRoom());
 
-        map.changeCurrentRoom(cabin);
+        map.changeCurrentRoom(cabin, true);
 
         assertEquals(cabin, map.getCurrentRoom());
     }

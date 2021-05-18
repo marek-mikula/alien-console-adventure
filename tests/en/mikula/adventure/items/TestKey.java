@@ -23,7 +23,7 @@ public class TestKey {
 
     @Test
     public void testItemCanOpen() {
-        game.getMap().changeCurrentRoom(game.getMap().getRoom(RoomCode.ROOM_1));
+        game.getMap().changeCurrentRoom(game.getMap().getRoom(RoomCode.ROOM_1), true);
 
         CargoSpaceCard cargoSpaceCard = new CargoSpaceCard(game);
 
