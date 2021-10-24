@@ -3,9 +3,9 @@ package en.mikula.adventure.base;
 import en.mikula.adventure.rooms.Room;
 import en.mikula.adventure.rooms.RoomCode;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 /**
  * @author Marek Mikula
@@ -29,14 +29,9 @@ public class Map {
     private Room currentRoom;
 
     /**
-     * Previous room reference
+     * Stack of previous rooms
      */
-    private Room previousRoom;
-
-    /**
-     * Array of previous rooms
-     */
-    private LinkedList<Room> previousRooms = new LinkedList<>();
+    private final LinkedList<Room> previousRooms = new LinkedList<>();
 
     /**
      * Gets the current room
@@ -53,7 +48,11 @@ public class Map {
      * @return previous room
      */
     public Room getPreviousRoom() {
-        return previousRooms.removeLast();
+        try {
+            return previousRooms.removeLast();
+        } catch (NoSuchElementException exception) {
+            return null;
+        }
     }
 
     /**
@@ -75,7 +74,6 @@ public class Map {
         if (shouldAddToPrevious) {
             previousRooms.add(currentRoom);
         }
-
         currentRoom = room;
     }
 
@@ -91,7 +89,6 @@ public class Map {
                 return room;
             }
         }
-
         return null;
     }
 
