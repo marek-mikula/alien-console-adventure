@@ -7,7 +7,7 @@ Version: 1.0.0
 
 ## Story
 
-You are one of the main control technics on the Nostromo ship owned by space-mining company Weyland-Yutani. The Nostromo serves a as mother ship for miners who work on the planet LV178 not too far to Nostromo. There are two groups of miners, the first one is on the planet working, the second is resting on the mother ship. Every month there is a change between these two groups. The day were just yesterday. You are waking up after a long day shift on the mother ship Nostromo. Something is not right. You've been woken up by an emergency siren and a smell of burnt plastic. You should go to command bridge and find out what is going on.
+You are one of the main control technics on the Nostromo ship owned by space-mining company Weyland-Yutani. The Nostromo serves a as mother ship for miners who work on the planet LV178 not too far from Nostromo. There are two groups of miners, the first one is on the planet working, the second is resting on the mother ship. Every month there is a change between these two groups. The day were just yesterday. You are waking up after a long day shift on the mother ship Nostromo. Something is not right. You've been woken up by an emergency siren and a smell of burnt plastic. You should go to command bridge and find out what is going on.
 
 ## How to play
 

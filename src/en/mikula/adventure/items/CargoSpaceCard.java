@@ -7,7 +7,7 @@ import en.mikula.adventure.rooms.RoomCode;
  * @author Marek Mikula
  * @version 4/10/2021
  */
-public class CargoSpaceCard extends Item implements Key {
+public class CargoSpaceCard extends Item implements Key, Pickable {
 
     private final Game game;
 
